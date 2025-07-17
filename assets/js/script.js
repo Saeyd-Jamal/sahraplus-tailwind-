@@ -87,6 +87,20 @@ new Swiper(".best10Swiper", {
   },
 });
 
+new Swiper(".mySwiper-comments", {
+  slidesPerView: 3,
+  spaceBetween: 20,
+  loop: true,
+  autoplay: {
+    delay: 4000,
+  },
+  breakpoints: {
+    320: { slidesPerView: 1 },
+    640: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+  },
+});
+
 function toggleNavButtons(swiper) {
   const nextBtn = swiper.el.querySelector(".swiper-button-next");
   const prevBtn = swiper.el.querySelector(".swiper-button-prev");
@@ -119,54 +133,50 @@ window.addEventListener("scroll", function () {
 
 $(document).ready(function () {
   // تبديل إلى قائمة اللغة
-  $('#language-toggle').on('click', function (e) {
+  $("#language-toggle").on("click", function (e) {
     e.stopPropagation();
-    $('#menu-profile').addClass('hidden');
-    $('#menu-language').removeClass('hidden');
+    $("#menu-profile").addClass("hidden");
+    $("#menu-language").removeClass("hidden");
   });
 
   // رجوع من قائمة اللغة إلى الملف الشخصي
-  $('#back-to-profile').on('click', function () {
-    $('#menu-language').addClass('hidden');
-    $('#menu-profile').removeClass('hidden');
+  $("#back-to-profile").on("click", function () {
+    $("#menu-language").addClass("hidden");
+    $("#menu-profile").removeClass("hidden");
   });
 });
 
 $(document).ready(function () {
   // فتح
-  $('#open-search').on('click', function () {
-    $('#search-overlay').fadeIn(150).removeClass('hidden');
-  
+  $("#open-search").on("click", function () {
+    $("#search-overlay").fadeIn(150).removeClass("hidden");
+
     // تركيز تلقائي بعد الظهور
     setTimeout(() => {
-      $('#search-overlay input').focus();
+      $("#search-overlay input").focus();
     }, 200); // تأخير بسيط لتضمن ظهوره قبل التركيز
   });
-  
 
   // إغلاق عند الضغط على "إلغاء" أو خارج الحقل
-  $('#close-search, #search-overlay').on('click', function (e) {
-    if (e.target.id === 'search-overlay' || e.target.id === 'close-search') {
-      $('#search-overlay').fadeOut(150);
+  $("#close-search, #search-overlay").on("click", function (e) {
+    if (e.target.id === "search-overlay" || e.target.id === "close-search") {
+      $("#search-overlay").fadeOut(150);
     }
   });
 
   // منع الإغلاق عند الضغط داخل الحقل
-  $('#search-overlay input').on('click', function (e) {
+  $("#search-overlay input").on("click", function (e) {
     e.stopPropagation();
   });
-  $('#search-overlay input').on('input', function () {
+  $("#search-overlay input").on("input", function () {
     const value = $(this).val().trim();
     if (value.length > 0) {
-      $('#search-results').removeClass('hidden');
+      $("#search-results").removeClass("hidden");
     } else {
-      $('#search-results').addClass('hidden');
+      $("#search-results").addClass("hidden");
     }
   });
-  
-  
 });
-
 
 // *- Hero Slider -*
 $(function () {

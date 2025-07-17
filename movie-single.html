@@ -206,9 +206,14 @@
     <section id="playerSection" class="hidden fixed inset-0 z-[9999] bg-black">
         <div class="relative w-full h-full">
             <!-- فيديو -->
-            <video id="watchVideo" class="object-cover z-10 w-full rounded-lg" src="./assets/videos/mov_bbb.mp4"
-                playsinline></video>
+            <!-- data-intro="60" وقت المقدمة بالثواني  -->
+            <video id="watchVideo" class="object-cover z-10 w-full rounded-lg" src="./assets/videos/mov_bbb2.mp4"
+                playsinline data-intro="60"></video>
 
+            <button id="skipIntroBtn"
+                class="hidden absolute right-5 bottom-16 z-30 px-4 py-2 text-sm font-semibold text-white bg-red-600 rounded transition bo-5 b-5 hover:bg-red-700">
+                ⏩ تخطي المقدمة
+            </button>
             <!-- ✅ أزرار التحكم -->
             <div id="videoControls"
                 class="flex absolute inset-0 z-20 flex-col justify-between p-4 text-white pointer-events-none">
@@ -221,6 +226,8 @@
                         <i class="fas fa-forward"></i>
                     </button>
                 </div>
+
+
 
                 <!-- الأسفل الجديد -->
                 <div class="flex gap-4 items-center w-full pointer-events-auto" dir="ltr">
@@ -237,7 +244,7 @@
                             <i class="fas fa-undo"></i>
                         </button>
                         <button id="togglePlay" class="p-3 rounded-full bg-black/50 hover:bg-black/70">
-                            <i id="playIcon" class="fas fa-play"></i>
+                            <i id="playIcon" class="fas fa-pause"></i>
                         </button>
                         <button id="forward" class="p-2 rounded bg-black/50 hover:bg-black/70">
                             <i class="fas fa-redo"></i>
@@ -328,7 +335,8 @@
     <div class="container px-6 py-10 mx-auto max-w-[95%]">
         <div class="flex flex-wrap gap-2 mb-6">
             <button data-tab="episodes"
-                class="flex-1 px-4 py-2 text-center bg-gray-800 rounded-md transition-all duration-300 tab hover:bg-fire-red">ذات صلة</button>
+                class="flex-1 px-4 py-2 text-center bg-gray-800 rounded-md transition-all duration-300 tab hover:bg-fire-red">ذات
+                صلة</button>
             <button data-tab="details"
                 class="flex-1 px-4 py-2 text-center bg-gray-800 rounded-md transition-all duration-300 tab hover:bg-fire-red">التفاصيل</button>
             <button data-tab="cast"
@@ -343,7 +351,7 @@
                 <div class="overflow-visible px-4 py-6 mx-auto mb-3">
                     <!-- عنوان القسم -->
                     <h2 class="mb-4 text-2xl font-bold text-right">أفلام ذات صلة</h2>
-            
+
                     <!-- سلايدر Swiper -->
                     <div class="isolate overflow-visible relative pb-44 swiper mySwiper-horizontal">
                         <div class="swiper-wrapper">
@@ -403,17 +411,17 @@
                                 }
                             </script>
                         </div>
-            
+
                         <!-- الأسهم -->
                         <div class="text-white swiper-button-next"></div>
                         <div class="text-white swiper-button-prev"></div>
                     </div>
                 </div>
-                
+
                 <div class="overflow-visible px-4 py-6 mx-auto mb-3">
                     <!-- عنوان القسم -->
                     <h2 class="mb-4 text-2xl font-bold text-right">أعلى المشاهدة</h2>
-            
+
                     <!-- سلايدر Swiper -->
                     <div class="isolate overflow-visible relative pb-44 swiper mySwiper-horizontal">
                         <div class="swiper-wrapper">
@@ -473,7 +481,7 @@
                                 }
                             </script>
                         </div>
-            
+
                         <!-- الأسهم -->
                         <div class="text-white swiper-button-next"></div>
                         <div class="text-white swiper-button-prev"></div>
@@ -481,40 +489,41 @@
                 </div>
             </div>
             <div id="details" class="hidden tab-content animate-fade-in">
-                <h2 class="pb-2 mb-6 text-2xl font-bold text-white border-b border-gray-600">تفاصيل الفيلم</h2>            
+                <h2 class="pb-2 mb-6 text-2xl font-bold text-white border-b border-gray-600">تفاصيل الفيلم</h2>
                 <div class="grid grid-cols-1 gap-6 text-gray-300 md:grid-cols-2">
-              
-                  <!-- وصف -->
-                  <div class="col-span-2">
-                    <p class="text-lg leading-relaxed">
-                      قصة <span class="font-semibold text-sky-400">تشويقية</span> تدور حول بطل يسعى للانتقام بعد خيانة أصدقائه، حيث تتصاعد الأحداث
-                      في قالب من <span class="font-semibold text-red-400">الأكشن والإثارة</span>.
-                    </p>
-                  </div>
-              
-                  <!-- التصنيف -->
-                  <div class="flex gap-3 items-center">
-                    <i class="text-sky-400 fas fa-film"></i>
-                    <span><span class="font-semibold text-white">التصنيف:</span> أكشن، دراما</span>
-                  </div>
-              
-                  <!-- المدة -->
-                  <div class="flex gap-3 items-center">
-                    <i class="text-yellow-400 fas fa-clock"></i>
-                    <span><span class="font-semibold text-white">المدة:</span> 45 دقيقة</span>
-                  </div>
-              
-                  <!-- سنة الإنتاج -->
-                  <div class="flex gap-3 items-center">
-                    <i class="text-green-400 fas fa-calendar-alt"></i>
-                    <span><span class="font-semibold text-white">سنة الإنتاج:</span> 2024</span>
-                  </div>
-              
+
+                    <!-- وصف -->
+                    <div class="col-span-2">
+                        <p class="text-lg leading-relaxed">
+                            قصة <span class="font-semibold text-sky-400">تشويقية</span> تدور حول بطل يسعى للانتقام بعد
+                            خيانة أصدقائه، حيث تتصاعد الأحداث
+                            في قالب من <span class="font-semibold text-red-400">الأكشن والإثارة</span>.
+                        </p>
+                    </div>
+
+                    <!-- التصنيف -->
+                    <div class="flex gap-3 items-center">
+                        <i class="text-sky-400 fas fa-film"></i>
+                        <span><span class="font-semibold text-white">التصنيف:</span> أكشن، دراما</span>
+                    </div>
+
+                    <!-- المدة -->
+                    <div class="flex gap-3 items-center">
+                        <i class="text-yellow-400 fas fa-clock"></i>
+                        <span><span class="font-semibold text-white">المدة:</span> 45 دقيقة</span>
+                    </div>
+
+                    <!-- سنة الإنتاج -->
+                    <div class="flex gap-3 items-center">
+                        <i class="text-green-400 fas fa-calendar-alt"></i>
+                        <span><span class="font-semibold text-white">سنة الإنتاج:</span> 2024</span>
+                    </div>
+
                 </div>
             </div>
             <div id="cast" class="hidden tab-content animate-fade-in">
                 <h2 class="pb-2 mb-6 text-2xl font-bold text-white border-b border-gray-600">الممثلين</h2>
-            
+
                 <div class="grid grid-cols-2 gap-6 text-center sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                     <!-- ممثل 1 -->
                     <a href="#actor1" class="transition-transform duration-300 group hover:scale-105">
@@ -522,88 +531,246 @@
                             <img src="https://placehold.co/150x200" alt="ممثل 1"
                                 class="object-cover w-full h-52 rounded-lg group-hover:opacity-90" />
                         </div>
-                        <span class="block mt-2 text-sm font-semibold text-gray-300 group-hover:text-white">ممثل 1</span>
+                        <span class="block mt-2 text-sm font-semibold text-gray-300 group-hover:text-white">ممثل
+                            1</span>
                     </a>
-            
+
                     <!-- ممثل 2 -->
                     <a href="#actor2" class="transition-transform duration-300 group hover:scale-105">
                         <div class="overflow-hidden rounded-lg shadow-md">
                             <img src="https://placehold.co/150x200" alt="ممثل 2"
                                 class="object-cover w-full h-52 rounded-lg group-hover:opacity-90" />
                         </div>
-                        <span class="block mt-2 text-sm font-semibold text-gray-300 group-hover:text-white">ممثل 2</span>
+                        <span class="block mt-2 text-sm font-semibold text-gray-300 group-hover:text-white">ممثل
+                            2</span>
                     </a>
-            
+
                     <!-- ممثل 3 -->
                     <a href="#actor3" class="transition-transform duration-300 group hover:scale-105">
                         <div class="overflow-hidden rounded-lg shadow-md">
                             <img src="https://placehold.co/150x200" alt="ممثل 3"
                                 class="object-cover w-full h-52 rounded-lg group-hover:opacity-90" />
                         </div>
-                        <span class="block mt-2 text-sm font-semibold text-gray-300 group-hover:text-white">ممثل 3</span>
+                        <span class="block mt-2 text-sm font-semibold text-gray-300 group-hover:text-white">ممثل
+                            3</span>
                     </a>
-            
+
                     <!-- ممثل 4 -->
                     <a href="#actor4" class="transition-transform duration-300 group hover:scale-105">
                         <div class="overflow-hidden rounded-lg shadow-md">
                             <img src="https://placehold.co/150x200" alt="ممثل 4"
                                 class="object-cover w-full h-52 rounded-lg group-hover:opacity-90" />
                         </div>
-                        <span class="block mt-2 text-sm font-semibold text-gray-300 group-hover:text-white">ممثل 4</span>
+                        <span class="block mt-2 text-sm font-semibold text-gray-300 group-hover:text-white">ممثل
+                            4</span>
                     </a>
                 </div>
-            </div> 
+            </div>
             <div id="comments" class="hidden tab-content animate-fade-in">
                 <div class="flex justify-between items-center mb-6">
-                  <h2 class="text-2xl font-bold text-white">التعليقات</h2>
-                  <button id="openCommentModal" class="px-4 py-1 text-sm text-white rounded transition-all bg-fire-red hover:bg-red-700">
-                    + أضف تعليق
-                  </button>
+                    <h2 class="text-2xl font-bold text-white">التعليقات</h2>
+                    <button id="openCommentModal"
+                        class="px-4 py-1 text-sm text-white rounded transition-all bg-fire-red hover:bg-red-700">
+                        + أضف تعليق
+                    </button>
                 </div>
-              
+
+                <!-- التعليقات لنفس المستخدم -->
                 <div id="commentsList" class="space-y-4">
-                  <!-- تعليق 1 -->
-                  <div class="flex items-start p-4 bg-gray-800 bg-opacity-40 rounded-lg shadow-sm">
-                    <img src="./assets/images/avatar.jpg" class="ml-3 w-10 h-10 rounded-full" alt="Avatar">
-                    <div>
-                      <div class="flex gap-2 items-center mb-1">
-                        <p class="font-bold text-white">مستخدم 1</p>
-                        <span class="text-xs text-gray-400">منذ يوم</span>
-                      </div>
-                      <p class="text-sm text-gray-300">فيلم رائع يستحق المشاهدة!</p>
+                    <!-- تعليق 1 -->
+                    <div class="flex items-start p-4 bg-gray-800 bg-opacity-40 rounded-lg shadow-sm">
+                        <img src="./assets/images/avatar.jpg" class="ml-3 w-10 h-10 rounded-full" alt="Avatar">
+                        <div>
+                            <div class="flex gap-2 items-center mb-1">
+                                <p class="font-bold text-white">أنت</p>
+                                <span class="text-xs text-gray-400">منذ يوم</span>
+                            </div>
+                            <p class="text-sm text-gray-300">فيلم رائع يستحق المشاهدة!</p>
+                        </div>
                     </div>
-                  </div>
-              
-                  <!-- تعليق 2 -->
-                  <div class="flex items-start p-4 bg-gray-800 bg-opacity-40 rounded-lg shadow-sm">
-                    <img src="./assets/images/avatar.jpg" class="ml-3 w-10 h-10 rounded-full" alt="Avatar">
-                    <div>
-                      <div class="flex gap-2 items-center mb-1">
-                        <p class="font-bold text-white">مستخدم 2</p>
-                        <span class="text-xs text-gray-400">منذ 3 أيام</span>
-                      </div>
-                      <p class="text-sm text-gray-300">أداء الممثلين كان ممتازاً.</p>
+                </div>
+
+                <div class="my-8">
+                    <div class="overflow-visible swiper mySwiper-comments">
+                        <div class="swiper-wrapper">
+                            <!-- تكرار التعليق -->
+                            
+                            <div class="swiper-slide bg-gray-900 text-white p-4 rounded-xl w-[280px] shadow-md">
+                                <div class="flex gap-4 items-start p-4 text-white bg-gray-800 bg-opacity-50 rounded-xl shadow-lg">
+                                    <!-- صورة المستخدم -->
+                                    <div class="relative">
+                                      <img src="./assets/images/avatar.jpg" alt="Avatar"
+                                           class="w-12 h-12 rounded-full ring-2 ring-gray-600 shadow-sm">
+                                    </div>
+                                  
+                                    <!-- المحتوى -->
+                                    <div class="flex-1">
+                                      <div class="flex justify-between items-start mb-1">
+                                        <p class="font-bold text-white">مستخدم 1</p>
+                                        <div class="text-end">
+                                            <div class="flex gap-1 text-sm text-yellow-400">
+                                                ⭐⭐⭐⭐⭐
+                                            </div>
+                                            <span class="text-xs text-gray-400">منذ يوم</span>
+                                        </div>
+                                      </div>
+                                      <div>
+                                        <p class="text-sm leading-relaxed text-gray-300">فيلم رائع يستحق المشاهدة! ✨</p>
+                                      </div>
+                                    </div>
+                                </div>                                  
+                            </div>
+                            <div class="swiper-slide bg-gray-900 text-white p-4 rounded-xl w-[280px] shadow-md">
+                                <div class="flex gap-4 items-start p-4 text-white bg-gray-800 bg-opacity-50 rounded-xl shadow-lg">
+                                    <!-- صورة المستخدم -->
+                                    <div class="relative">
+                                      <img src="./assets/images/avatar.jpg" alt="Avatar"
+                                           class="w-12 h-12 rounded-full ring-2 ring-gray-600 shadow-sm">
+                                    </div>
+                                  
+                                    <!-- المحتوى -->
+                                    <div class="flex-1">
+                                      <div class="flex justify-between items-start mb-1">
+                                        <p class="font-bold text-white">مستخدم 1</p>
+                                        <div class="text-end">
+                                            <div class="flex gap-1 text-sm text-yellow-400">
+                                                ⭐⭐⭐⭐⭐
+                                            </div>
+                                            <span class="text-xs text-gray-400">منذ يوم</span>
+                                        </div>
+                                      </div>
+                                      <div>
+                                        <p class="text-sm leading-relaxed text-gray-300">فيلم رائع يستحق المشاهدة! ✨</p>
+                                      </div>
+                                    </div>
+                                </div>                                  
+                            </div>
+                            <div class="swiper-slide bg-gray-900 text-white p-4 rounded-xl w-[280px] shadow-md">
+                                <div class="flex gap-4 items-start p-4 text-white bg-gray-800 bg-opacity-50 rounded-xl shadow-lg">
+                                    <!-- صورة المستخدم -->
+                                    <div class="relative">
+                                      <img src="./assets/images/avatar.jpg" alt="Avatar"
+                                           class="w-12 h-12 rounded-full ring-2 ring-gray-600 shadow-sm">
+                                    </div>
+                                  
+                                    <!-- المحتوى -->
+                                    <div class="flex-1">
+                                      <div class="flex justify-between items-start mb-1">
+                                        <p class="font-bold text-white">مستخدم 1</p>
+                                        <div class="text-end">
+                                            <div class="flex gap-1 text-sm text-yellow-400">
+                                                ⭐⭐⭐⭐⭐
+                                            </div>
+                                            <span class="text-xs text-gray-400">منذ يوم</span>
+                                        </div>
+                                      </div>
+                                      <div>
+                                        <p class="text-sm leading-relaxed text-gray-300">فيلم رائع يستحق المشاهدة! ✨</p>
+                                      </div>
+                                    </div>
+                                </div>                                  
+                            </div>
+                            <div class="swiper-slide bg-gray-900 text-white p-4 rounded-xl w-[280px] shadow-md">
+                                <div class="flex gap-4 items-start p-4 text-white bg-gray-800 bg-opacity-50 rounded-xl shadow-lg">
+                                    <!-- صورة المستخدم -->
+                                    <div class="relative">
+                                      <img src="./assets/images/avatar.jpg" alt="Avatar"
+                                           class="w-12 h-12 rounded-full ring-2 ring-gray-600 shadow-sm">
+                                    </div>
+                                  
+                                    <!-- المحتوى -->
+                                    <div class="flex-1">
+                                      <div class="flex justify-between items-start mb-1">
+                                        <p class="font-bold text-white">مستخدم 1</p>
+                                        <div class="text-end">
+                                            <div class="flex gap-1 text-sm text-yellow-400">
+                                                ⭐⭐⭐⭐⭐
+                                            </div>
+                                            <span class="text-xs text-gray-400">منذ يوم</span>
+                                        </div>
+                                      </div>
+                                      <div>
+                                        <p class="text-sm leading-relaxed text-gray-300">فيلم رائع يستحق المشاهدة! ✨</p>
+                                      </div>
+                                    </div>
+                                </div>                                  
+                            </div>
+                            <div class="swiper-slide bg-gray-900 text-white p-4 rounded-xl w-[280px] shadow-md">
+                                <div class="flex gap-4 items-start p-4 text-white bg-gray-800 bg-opacity-50 rounded-xl shadow-lg">
+                                    <!-- صورة المستخدم -->
+                                    <div class="relative">
+                                      <img src="./assets/images/avatar.jpg" alt="Avatar"
+                                           class="w-12 h-12 rounded-full ring-2 ring-gray-600 shadow-sm">
+                                    </div>
+                                  
+                                    <!-- المحتوى -->
+                                    <div class="flex-1">
+                                      <div class="flex justify-between items-start mb-1">
+                                        <p class="font-bold text-white">مستخدم 1</p>
+                                        <div class="text-end">
+                                            <div class="flex gap-1 text-sm text-yellow-400">
+                                                ⭐⭐⭐⭐⭐
+                                            </div>
+                                            <span class="text-xs text-gray-400">منذ يوم</span>
+                                        </div>
+                                      </div>
+                                      <div>
+                                        <p class="text-sm leading-relaxed text-gray-300">فيلم رائع يستحق المشاهدة! ✨</p>
+                                      </div>
+                                    </div>
+                                </div>                                  
+                            </div>
+                            <div class="swiper-slide bg-gray-900 text-white p-4 rounded-xl w-[280px] shadow-md">
+                                <div class="flex gap-4 items-start p-4 text-white bg-gray-800 bg-opacity-50 rounded-xl shadow-lg">
+                                    <!-- صورة المستخدم -->
+                                    <div class="relative">
+                                      <img src="./assets/images/avatar.jpg" alt="Avatar"
+                                           class="w-12 h-12 rounded-full ring-2 ring-gray-600 shadow-sm">
+                                    </div>
+                                  
+                                    <!-- المحتوى -->
+                                    <div class="flex-1">
+                                      <div class="flex justify-between items-start mb-1">
+                                        <p class="font-bold text-white">مستخدم 1</p>
+                                        <div class="text-end">
+                                            <div class="flex gap-1 text-sm text-yellow-400">
+                                                ⭐⭐⭐⭐⭐
+                                            </div>
+                                            <span class="text-xs text-gray-400">منذ يوم</span>
+                                        </div>
+                                      </div>
+                                      <div>
+                                        <p class="text-sm leading-relaxed text-gray-300">فيلم رائع يستحق المشاهدة! ✨</p>
+                                      </div>
+                                    </div>
+                                </div>                                  
+                            </div>
+                
+                            <!-- كرر العناصر حسب الحاجة -->
+                        </div>
                     </div>
-                  </div>
                 </div>
             </div>
-              
+
         </div>
-        
+
     </div>
 
     <!-- Modal -->
-    <div id="commentModal" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm z-[9999] hidden flex items-center justify-center">
+    <div id="commentModal"
+        class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm z-[9999] hidden flex items-center justify-center">
         <div class="p-6 w-full max-w-md text-white rounded-lg shadow-lg bg-zinc-900">
-        <h3 class="mb-4 text-lg font-bold">أضف تعليقك</h3>
-        <textarea id="commentInput" class="p-3 w-full h-24 text-sm rounded bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="اكتب تعليقك هنا..."></textarea>
-        <div class="flex gap-3 justify-end mt-4">
-            <button id="closeCommentModal" class="text-sm text-gray-400 hover:text-white">إلغاء</button>
-            <button id="submitComment" class="px-4 py-1 text-sm bg-sky-600 rounded hover:bg-sky-700">نشر</button>
-        </div>
+            <h3 class="mb-4 text-lg font-bold">أضف تعليقك</h3>
+            <textarea id="commentInput"
+                class="p-3 w-full h-24 text-sm rounded bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                placeholder="اكتب تعليقك هنا..."></textarea>
+            <div class="flex gap-3 justify-end mt-4">
+                <button id="closeCommentModal" class="text-sm text-gray-400 hover:text-white">إلغاء</button>
+                <button id="submitComment" class="px-4 py-1 text-sm bg-sky-600 rounded hover:bg-sky-700">نشر</button>
+            </div>
         </div>
     </div>
-  
+
 
     <footer class="bg-[#0f0f0f] text-white pt-10 pb-6 px-6 mt-12 border-t border-gray-800">
         <div class="grid grid-cols-1 gap-8 mx-auto max-w-screen-xl md:grid-cols-3">
@@ -722,13 +889,6 @@
             //     else if (document.msExitFullscreen) document.msExitFullscreen();
             // }
 
-            // إظهار السلايدر بسلاسة
-            // const slider = document.getElementById("nextEpisodesSlider");
-            // slider.classList.remove("hidden");
-            // setTimeout(() => {
-            //     slider.classList.remove("opacity-0", "translate-y-10");
-            // }, 50); // يعطي فرصة لـ transition يشتغل بعد إظهار العنصر
-
             // إظهار السلايدر
             nextSlider.style.transform = "translateY(0%)";
             nextSlider.style.opacity = "1";
@@ -764,15 +924,40 @@
             return `${minutes}:${seconds}`;
         }
 
+        // ✅ إظهار زر التخطي
+        const skipBtn = document.getElementById("skipIntroBtn");
+
+        // ✅ إظهار الزر بعد بداية الفيديو بفترة قصيرة
+        video.addEventListener("timeupdate", () => {
+            const introTime = parseFloat(video.dataset.intro); // الوقت المحدد للتخطي
+            if (!isNaN(introTime)) {
+                // إظهار الزر فقط إذا الوقت الحالي أقل من وقت التخطي بقليل
+                if (video.currentTime > 5 && video.currentTime < introTime) {
+                    skipBtn.classList.remove("hidden");
+                } else {
+                    skipBtn.classList.add("hidden");
+                }
+            }
+        });
+
+        // ✅ تنفيذ التخطي عند الضغط
+        skipBtn.addEventListener("click", () => {
+            const introTime = parseFloat(video.dataset.intro);
+            if (!isNaN(introTime)) {
+                video.currentTime = introTime;
+                skipBtn.classList.add("hidden");
+            }
+        });
+
     </script>
     <script>
         const openModal = document.getElementById("openCommentModal");
         const closeModal = document.getElementById("closeCommentModal");
         const modal = document.getElementById("commentModal");
-      
+
         openModal.addEventListener("click", () => modal.classList.remove("hidden"));
         closeModal.addEventListener("click", () => modal.classList.add("hidden"));
-      
+
         document.getElementById("submitComment").addEventListener("click", () => {
             const text = document.getElementById("commentInput").value.trim();
             if (text !== "") {
@@ -800,10 +985,10 @@
                 document.getElementById("commentInput").value = "";
                 modal.classList.add("hidden");
             }
-            });
+        });
 
     </script>
-      
+
 
 </body>
 

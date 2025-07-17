@@ -61,7 +61,13 @@ html {
   left: 0;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.35), transparent);
 }
+.swiper-slide {
+  transition: transform 0.3s ease-in-out;
+}
 
+.swiper-slide:hover {
+  transform: scale(1.03);
+}
 
 /* Navbar */
 /* ظل داخلي من الأعلى */
