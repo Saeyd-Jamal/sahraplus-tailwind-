@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sahra Plus</title>
+    <title>Sahra Plus - المباشر</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,7 +44,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden items-center space-x-8 md:flex rtl:space-x-reverse">
-                    <a href="#"
+                    <a href="./index.html"
                         class="font-medium text-white transition-colors duration-300 hover:text-fire-red">الرئيسية</a>
                     <a href="./series.html"
                         class="font-medium text-white transition-colors duration-300 hover:text-fire-red">مسلسلات</a>
@@ -338,7 +338,7 @@
     <!-- horizontal slider -->
     <div class="overflow-visible mb-6 px-4 py-6 mx-auto max-w-[95%]">
         <!-- عنوان القسم -->
-        <h2 class="mb-4 text-2xl font-bold text-right">إصدارات جديدة</h2>
+        <h2 class="mb-4 text-2xl font-bold text-right">الأفلام الجديدة على سهرة</h2>
 
         <!-- سلايدر Swiper -->
         <div class="isolate overflow-visible relative pb-44 swiper mySwiper-horizontal">
@@ -407,7 +407,7 @@
     </div>
     <div class="overflow-visible mb-6 px-4 py-6 mx-auto max-w-[95%]">
         <!-- عنوان القسم -->
-        <h2 class="mb-4 text-2xl font-bold text-right">أفلام كورية</h2>
+        <h2 class="mb-4 text-2xl font-bold text-right">مخصصة لك</h2>
 
         <!-- سلايدر Swiper -->
         <div class="isolate overflow-visible relative pb-44 swiper mySwiper-horizontal">
@@ -650,39 +650,7 @@
             <div class="text-white swiper-button-prev"></div>
         </div>
     </div>
-    <!-- قسم التصنيفات (اكتشف المزيد) -->
-    <div class="mb-6 px-4 py-6 mx-auto max-w-[95%] text-white">
-        <h2 class="mb-4 text-2xl font-bold text-right">اكتشف المزيد</h2>
 
-        <!-- Swiper container -->
-        <div class="overflow-visible pb-8 swiper mySwiper-categories">
-            <div class="swiper-wrapper">
-                <script>
-                    const categories = [
-                        "خليجي", "تركي", "مصري", "أجنبي", "كوري",
-                        "عربي", "مغربي", "هندي", "بوليوود", "MBC", "العربية"
-                    ];
-
-                    for (let name of categories) {
-                        document.write(`
-              <div class="swiper-slide">
-                <div class="overflow-hidden relative w-36 h-36 rounded-lg transition-transform duration-300 transform cursor-pointer hover:scale-125 group">
-                  <img src="https://placehold.co/200x270?text=${name}" alt="${name}" class="object-cover w-full h-full transition-all duration-300 group-hover:brightness-75">
-                  <div class="flex absolute inset-0 justify-center items-center bg-black bg-opacity-30">
-                    <span class="text-lg font-bold text-white">${name}</span>
-                  </div>
-                </div>
-              </div>
-            `);
-                    }
-                </script>
-            </div>
-
-            <!-- Navigation arrows -->
-            <div class="text-white swiper-button-next"></div>
-            <div class="text-white swiper-button-prev"></div>
-        </div>
-    </div>
     <div class="mb-6 px-4 py-6 mx-auto max-w-[95%]">
         <h2 class="mb-4 text-2xl font-bold text-right">أفضل 10 أعمال</h2>
 
@@ -778,7 +746,7 @@
     </footer>
 
 
-    <!-- ملف: profile-modal.html -->
+    <!-- ملف: profile-modal -->
     <div id="profileModal"
         class="flex flex-col hidden fixed inset-0 justify-center items-center bg-background-base z-[9999]">
         <div class="flex justify-end p-4 w-full">
