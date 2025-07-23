@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sahra Plus</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/tailwind.js"></script>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Custom CSS -->
+    <link href="./assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body class="bg-[#0e1014] text-white min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- الشريط الجانبي -->
+        <aside class="w-72 bg-[#181c23] p-6 space-y-2 border-l border-gray-800 text-white h-full rounded-3xl m-3">
+            <!-- Logo -->
+            <div class="flex flex-col pb-4 mb-2 space-y-2 border-b border-red-500">
+                <h1 class="text-3xl font-black text-fire-red font-arabic">
+                    سهرة بلس
+                </h1>
+            </div>
+
+            <!-- Tabs -->
+            <button
+                class="flex justify-between items-center px-4 py-3 w-full rounded-lg transition-all duration-300 tab-btn hover:bg-red-700 hover:pr-6 group"
+                data-tab="subscriptions">
+                <span class="transition-all duration-300 group-hover:pr-2">إدارة الاشتراكات</span>
+                <i class="text-gray-400 transition-all duration-300 fas fa-chevron-left group-hover:translate-x-1"></i>
+            </button>
+
+            <button
+                class="flex justify-between items-center px-4 py-3 w-full rounded-lg transition-all duration-300 tab-btn hover:bg-red-700 hover:pr-6 group"
+                data-tab="password">
+                <span class="transition-all duration-300 group-hover:pr-2">تغيير كلمة المرور</span>
+                <i class="text-gray-400 transition-all duration-300 fas fa-chevron-left group-hover:translate-x-1"></i>
+            </button>
+
+            <button
+                class="flex justify-between items-center px-4 py-3 w-full rounded-lg transition-all duration-300 tab-btn hover:bg-red-700 hover:pr-6 group"
+                data-tab="account">
+                <span class="transition-all duration-300 group-hover:pr-2">إدارة الحساب</span>
+                <i class="text-gray-400 transition-all duration-300 fas fa-chevron-left group-hover:translate-x-1"></i>
+            </button>
+
+            <button
+                class="flex justify-between items-center px-4 py-3 w-full rounded-lg transition-all duration-300 tab-btn hover:bg-red-700 hover:pr-6 group"
+                data-tab="devices">
+                <span class="transition-all duration-300 group-hover:pr-2">إدارة الأجهزة</span>
+                <i class="text-gray-400 transition-all duration-300 fas fa-chevron-left group-hover:translate-x-1"></i>
+            </button>
+
+            <button
+                class="flex justify-between items-center px-4 py-3 w-full rounded-lg transition-all duration-300 tab-btn hover:bg-red-700 hover:pr-6 group"
+                data-tab="parental">
+                <span class="transition-all duration-300 group-hover:pr-2">واجهة الرقابة الأبوية</span>
+                <i class="text-gray-400 transition-all duration-300 fas fa-chevron-left group-hover:translate-x-1"></i>
+            </button>
+
+            <button
+                class="flex justify-between items-center px-4 py-3 w-full rounded-lg transition-all duration-300 tab-btn hover:bg-red-700 hover:pr-6 group"
+                data-tab="offers">
+                <span class="transition-all duration-300 group-hover:pr-2">مزايا خاصة</span>
+                <i class="text-gray-400 transition-all duration-300 fas fa-chevron-left group-hover:translate-x-1"></i>
+            </button>
+        </aside>
+
+
+        <!-- المحتوى الرئيسي -->
+        <main class="flex-1 p-10">
+            <div id="subscriptions" class="space-y-6 text-white tab-content">
+                <!-- العنوان -->
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold">إدارة الاشتراك</h2>
+                    <p class="mt-1 text-sm text-gray-400">اشتراكك مفعل</p>
+                    <p class="text-sm text-gray-500">اشتراكك فعّال إلى غاية <span class="text-green-400">22 سبتمبر
+                            2025</span></p>
+                </div>
+
+                <!-- تفاصيل الاشتراك -->
+                <div class="overflow-hidden rounded-lg border border-gray-700">
+                    <details class="bg-[#1e2430] rounded-lg overflow-hidden border border-gray-700">
+                        <summary
+                            class="flex justify-between items-center px-4 py-3 w-full bg-gradient-to-l from-blue-800 to-purple-800 transition-all hover:brightness-110">
+                            <span>تفاصيل الاشتراك:</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="p-4 border-t border-gray-700">
+                            <div
+                                class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm border border-gray-700 rounded-lg overflow-hidden bg-[#1e2430]">
+                                <div class="p-3 border-b border-gray-700 md:border-b-0 md:border-r">
+                                    <div class="text-gray-400">الباقة:</div>
+                                    <div class="font-bold text-white">VIP</div>
+                                </div>
+                                <div class="p-3">
+                                    <div class="text-gray-400">الاشتراك:</div>
+                                    <div class="font-bold text-white">3 أشهر</div>
+                                </div>
+                                <div class="col-span-2 p-3 border-t border-gray-700">
+                                    <div class="text-gray-400">اسم العرض:</div>
+                                    <div class="font-bold text-white">قسيمة عرض تسويقي</div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                    <p class="px-4 py-3 text-sm text-green-400 border-t border-gray-700">
+                        للمزيد من المعلومات حول كيفية تغيير باقتك <a href="#" class="underline">اضغط هنا</a>
+                    </p>
+                </div>
+
+                <!-- خدمات أخرى -->
+                <div class="space-y-2">
+                    <h3 class="font-bold">خدمات أخرى:</h3>
+
+                    <!-- زر تمديد القسيمة -->
+                    <details class="bg-[#1e2430] rounded-lg overflow-hidden border border-gray-700">
+                        <summary class="flex justify-between items-center px-4 py-3 cursor-pointer">
+                            <span>مدد اشتراك القسيمة الخاص بك</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="p-4 border-t border-gray-700">
+                            <h4 class="mb-2 font-bold">تفعيل قسيمة الاشتراك</h4>
+                            <p class="mb-2 text-sm text-gray-400">الباقة الحالية: <span
+                                    class="font-bold text-white">VIP</span></p>
+                            <input type="text" placeholder="قسيمة الاشتراك"
+                                class="p-3 mb-3 w-full text-white bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-fire-red">
+                            <button
+                                class="py-2 w-full bg-gray-600 rounded-lg transition hover:bg-gray-500">تحقق</button>
+
+                            <p class="mt-6 text-sm text-center text-gray-400">تحتاج لبطاقة هدية؟</p>
+                            <div class="grid grid-cols-2 gap-4 mt-3 md:grid-cols-4">
+                                <div class="space-y-1 text-center">
+                                    <img src="https://placehold.co/100x50?text=MTG" class="mx-auto rounded" />
+                                    <a href="#" class="text-xs text-sky-400 hover:underline">المزيد من المعلومات</a>
+                                </div>
+                                <div class="space-y-1 text-center">
+                                    <img src="https://placehold.co/100x50?text=Bee" class="mx-auto rounded" />
+                                    <a href="#" class="text-xs text-sky-400 hover:underline">المزيد من المعلومات</a>
+                                </div>
+                                <div class="space-y-1 text-center">
+                                    <img src="https://placehold.co/100x50?text=Fawry" class="mx-auto rounded" />
+                                    <a href="#" class="text-xs text-sky-400 hover:underline">المزيد من المعلومات</a>
+                                </div>
+                                <div class="space-y-1 text-center">
+                                    <img src="https://placehold.co/100x50?text=Others" class="mx-auto rounded" />
+                                    <a href="#" class="text-xs text-sky-400 hover:underline">المزيد من المعلومات</a>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- المساعدة -->
+                    <details class="bg-[#1e2430] rounded-lg overflow-hidden border border-gray-700">
+                        <summary class="flex justify-between items-center px-4 py-3 cursor-pointer">
+                            <span>هل تحتاج للمساعدة بخصوص اشتراكك؟</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="p-4 space-y-2 text-sm text-gray-300 border-t border-gray-700">
+                            <p>اتصل على الأرقام التالية:</p>
+                            <div>
+                                <p><span class="text-white">+966 115 101 940</span> : المملكة العربية السعودية</p>
+                                <p><span class="text-white">04 5677 400</span> : الإمارات العربية المتحدة</p>
+                                <p><span class="text-white">06 5777 577</span> : المملكة الأردنية الهاشمية</p>
+                                <p><span class="text-white">+966 115 101 940</span> : الرقم الدولي</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- رجوع -->
+                <div class="pt-6 text-center">
+                    <a href="#" class="text-sm text-sky-400 hover:underline">
+                        ← الرجوع للخطوة السابقة
+                    </a>
+                </div>
+            </div>
+
+
+            <div id="password" class="hidden tab-content">
+                <h3 class="mb-4 text-2xl font-bold">تغيير كلمة المرور</h3>
+                <form class="space-y-4 max-w-md">
+                    <input type="password" placeholder="كلمة المرور الحالية"
+                        class="p-3 w-full bg-gray-800 rounded-md" />
+                    <input type="password" placeholder="كلمة المرور الجديدة"
+                        class="p-3 w-full bg-gray-800 rounded-md" />
+                    <input type="password" placeholder="تأكيد كلمة المرور" class="p-3 w-full bg-gray-800 rounded-md" />
+                    <button class="px-4 py-2 font-bold bg-green-600 rounded-md hover:bg-green-700">حفظ
+                        التغييرات</button>
+                </form>
+            </div>
+
+            <div id="account" class="hidden space-y-6 text-white tab-content">
+                <!-- العنوان -->
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold">تعديل معلوماتي الشخصية</h2>
+                    <p class="mt-1 text-sm text-gray-400">قم بتعديل معلوماتك الشخصية من خلال هذه الصفحة</p>
+                </div>
+
+                <!-- النموذج -->
+                <form class="mx-auto space-y-4 max-w-2xl">
+                    <input type="text" placeholder="الاسم الأول"
+                        class="px-4 py-3 w-full bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
+
+                    <input type="text" placeholder="اللقب"
+                        class="px-4 py-3 w-full bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
+
+                    <!-- الجنس -->
+                    <select
+                        class="px-4 py-3 w-full text-white bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <option>ذكر</option>
+                        <option selected>أنثى</option>
+                    </select>
+
+                    <!-- تاريخ الميلاد -->
+                    <div class="flex gap-4">
+                        <select id="year"
+                            class="px-4 py-3 w-1/2 text-white bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            <!-- أضف باقي السنوات -->
+                        </select>
+                        <select id="month"
+                            class="px-4 py-3 w-1/2 text-white bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            <!-- أضف باقي الشهور -->
+                        </select>
+                    </div>
+
+                    <!-- البريد الإلكتروني (ثابت) -->
+                    <input type="email" value="user@gmail.com" disabled
+                        class="px-4 py-3 w-full text-gray-400 bg-gray-900 rounded-lg border border-gray-700 cursor-not-allowed">
+
+                    <!-- تنويه البريد -->
+                    <p class="text-sm text-gray-400">
+                        لا يمكنك تعديل البريد الإلكتروني من خلال الموقع، إذا أردت التعديل يمكنك التواصل مع
+                        <a href="#" class="text-green-400 underline">خدمة العملاء</a>
+                    </p>
+
+                    <!-- ربط الجوال -->
+                    <p class="text-sm font-bold text-green-400">ربط رقم الجوال</p>
+
+                    <!-- تنويه جوجل -->
+                    <p class="text-xs text-gray-500">
+                        هذا الموقع محمي بواسطة reCAPTCHA. لمعرفة المزيد يمكنك زيارة
+                        <a href="#" class="text-gray-300 underline">سياسة الخصوصية</a> و
+                        <a href="#" class="text-gray-300 underline">شروط الخدمة</a> لدى جوجل.
+                    </p>
+
+                    <!-- زر الحفظ -->
+                    <button type="submit"
+                        class="py-3 w-full font-bold text-white bg-gradient-to-l from-sky-500 to-green-500 rounded-full transition-all hover:brightness-110">
+                        حفظ المعلومات
+                    </button>
+                </form>
+            </div>
+
+
+            <div id="devices" class="hidden tab-content">
+                <h3 class="mb-4 text-2xl font-bold">إدارة الأجهزة</h3>
+                <p class="mb-6 text-sm text-gray-300">إذا كان لديك رمز خاص لربط أحد أجهزتك <span
+                        class="font-bold text-primary">Pairing Code</span>، الرجاء إدخاله هنا</p>
+
+                <!-- إدخال رمز الجهاز -->
+                <div class="mb-4">
+                    <input type="text" placeholder="قم بإدخال الرمز هنا"
+                        class="px-4 py-3 w-full text-sm placeholder-gray-500 text-white bg-gray-900 rounded-full border border-gray-700 focus:outline-none focus:ring focus:ring-primary">
+                </div>
+                <div class="mb-6">
+                    <button
+                        class="px-4 py-2 w-full font-bold text-white bg-gray-700 rounded-full transition-all hover:bg-primary">
+                        ربط الجهاز
+                    </button>
+                </div>
+                <p class="mb-8 text-xs text-center text-gray-400">يمكنك ربط لغاية 20 جهاز مع حسابك على سهرة</p>
+
+                <!-- الأجهزة المرتبطة -->
+                <h4 class="mb-4 text-lg font-bold">الأجهزة المرتبطة حالياً بحسابك</h4>
+                <div id="device-list" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- عنصر الجهاز -->
+                    <div class="relative p-4 bg-gray-800 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-white">iPhone</span>
+                            <div class="flex gap-2">
+                                <button onclick="deleteDevice(this)" class="text-gray-400 hover:text-red-500">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <button onclick="editDevice(this)" class="text-gray-400 hover:text-blue-500">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400">تاريخ الإضافة: 2025 يوليو 19</p>
+                    </div>
+
+                    <!-- مثال على جهاز آخر -->
+                    <div class="relative p-4 bg-gray-800 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-white">Android TV</span>
+                            <div class="flex gap-2">
+                                <button onclick="deleteDevice(this)" class="text-gray-400 hover:text-red-500">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <button onclick="editDevice(this)" class="text-gray-400 hover:text-blue-500">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400">تاريخ الإضافة: 2025 يوليو 13</p>
+                    </div>
+                </div>
+
+                <!-- مودال التعديل -->
+                <div id="editModal"
+                    class="flex hidden fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-60">
+                    <div class="p-6 w-full max-w-md bg-gray-900 rounded-lg">
+                        <h4 class="mb-4 text-xl font-bold text-white">تعديل اسم الجهاز</h4>
+                        <input type="text" id="editDeviceName"
+                            class="px-4 py-2 mb-4 w-full text-white bg-gray-800 rounded"
+                            placeholder="اسم الجهاز الجديد">
+                        <div class="flex gap-2 justify-end">
+                            <button onclick="closeModal()"
+                                class="px-4 py-2 text-white bg-gray-600 rounded hover:bg-gray-700">إلغاء</button>
+                            <button onclick="saveDeviceName()"
+                                class="px-4 py-2 text-white rounded bg-primary hover:bg-blue-600">حفظ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✅ Notification -->
+            <div id="successAlert"
+                class="hidden fixed top-0 right-0 left-0 z-50 py-4 font-bold text-center text-white bg-emerald-500 shadow-md transition-all duration-500">
+                تم تحديث الرمز بنجاح.
+            </div>
+            <div id="parental" class="hidden space-y-6 text-center tab-content">
+                <h3 class="text-2xl font-bold">واجهة الرقابة الأبوية</h3>
+                <p class="text-gray-300">رمز الرقابة الأبوية سيساعدك على توفير حماية أكثر لطفلك</p>
+                <p class="text-sm text-gray-400">أدخل الرمز المكون من 4 أرقام</p>
+
+                <div class="flex gap-3 justify-center" dir="ltr">
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+                        class="w-16 h-16 text-2xl text-center text-black bg-white rounded-md shadow pin-input focus:outline-none focus:ring-2 focus:ring-fire-red" />
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+                        class="w-16 h-16 text-2xl text-center text-black bg-white rounded-md shadow pin-input focus:outline-none focus:ring-2 focus:ring-fire-red" />
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+                        class="w-16 h-16 text-2xl text-center text-black bg-white rounded-md shadow pin-input focus:outline-none focus:ring-2 focus:ring-fire-red" />
+                    <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+                        class="w-16 h-16 text-2xl text-center text-black bg-white rounded-md shadow pin-input focus:outline-none focus:ring-2 focus:ring-fire-red" />
+                </div>
+
+
+                <button id="savePinBtn" type="button"
+                    class="py-3 mt-6 w-1/3 font-bold text-white bg-gradient-to-r from-green-400 to-blue-500 rounded-full hover:opacity-90">
+                    حفظ
+                </button>
+            </div>
+
+
+            <div id="offers" class="hidden tab-content">
+                <h3 class="mb-4 text-2xl font-bold">مزايا خاصة</h3>
+                <p>العروض الحصرية المتاحة لك حالياً.</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.tab-btn');
+        const tabs = document.querySelectorAll('.tab-content');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabs.forEach(tab => tab.classList.add('hidden'));
+                document.getElementById(btn.dataset.tab).classList.remove('hidden');
+            });
+        });
+    </script>
+    <!-- توليد السنوات -->
+    <script>
+        let years = "";
+        for (let i = 2007; i >= 1970; i--) {
+            years += `<option>${i}</option>`;
+        }
+        document.querySelector("select#year").innerHTML = years;
+
+        let months = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
+        for (let i = 0; i < months.length; i++) {
+            months[i] = `<option>${months[i]}</option>`;
+        }
+        document.querySelector("select#month").innerHTML = months.join("");
+    </script>
+
+    <!-- Device -->
+    <script>
+        function deleteDevice(btn) {
+            btn.closest('.bg-gray-800').remove();
+        }
+
+        let currentEditingCard = null;
+
+        function editDevice(btn) {
+            currentEditingCard = btn.closest('.bg-gray-800');
+            const name = currentEditingCard.querySelector('span').textContent;
+            document.getElementById('editDeviceName').value = name;
+            document.getElementById('editModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').classList.add('hidden');
+        }
+
+        function saveDeviceName() {
+            const newName = document.getElementById('editDeviceName').value;
+            if (currentEditingCard && newName.trim()) {
+                currentEditingCard.querySelector('span').textContent = newName;
+                closeModal();
+            }
+        }
+    </script>
+
+    <!-- Pin -->
+    <script>
+        document.getElementById("savePinBtn").addEventListener("click", function () {
+            const alertBox = document.getElementById("successAlert");
+
+            // ✅ عرض الرسالة
+            alertBox.classList.remove("hidden");
+            alertBox.classList.add("animate-slide-in");
+
+            // ⏳ إخفاء الرسالة بعد 3 ثوانٍ
+            setTimeout(() => {
+                alertBox.classList.add("hidden");
+                alertBox.classList.remove("animate-slide-in");
+            }, 3000);
+        });
+        const inputs = document.querySelectorAll(".pin-input");
+
+        inputs.forEach((input, index) => {
+            input.addEventListener("input", (e) => {
+                const value = e.target.value;
+
+                // السماح برقم واحد فقط
+                if (!/^[0-9]$/.test(value)) {
+                    e.target.value = "";
+                    return;
+                }
+
+                // الانتقال للحقل التالي
+                if (index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+
+            // عند الضغط على Backspace يرجع للحقل السابق
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Backspace" && !e.target.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

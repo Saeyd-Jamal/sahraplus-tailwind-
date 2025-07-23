@@ -4,12 +4,16 @@ tailwind.config = {
             maxWidth: {
                 'screen-95%': '95%',
             },
+            backgroundColor: {
+                'background-base': 'rgb(32, 29, 37)'
+            },
             colors: {
                 'fire-red': '#E50914',
                 'dark-black': '#0F0F0F',
                 'neon-green': '#00FF87',
                 'gray-800': '#1F2937',
-                'gray-900': '#111827'
+                'gray-900': '#111827',
+                'gray-950': '#0F1113'
             },
             textShadow: {
                 'shadow': '0 0 20px rgba(229, 9, 20, 0.5)',
