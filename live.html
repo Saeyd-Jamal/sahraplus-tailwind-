@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sahra Plus - المباشر</title>
+    <title>Sahra Plus</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,9 +27,10 @@
 
     <!-- Custom CSS -->
     <link href="./assets/css/style.css" rel="stylesheet" />
+    <link href="./assets/css/live.css" rel="stylesheet" />
 </head>
 
-<body class="text-white bg-dark-black">
+<body class="text-white bg-gray-900">
     <!-- Navigation Header -->
     <nav id="navbar"
         class="fixed top-0 right-0 left-0 z-[9999] navbar-initial navbar-inset-shadow transition-all duration-500 ease-out">
@@ -44,7 +45,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden items-center space-x-8 md:flex rtl:space-x-reverse">
-                    <a href="./index.html"
+                    <a href="#"
                         class="font-medium text-white transition-colors duration-300 hover:text-fire-red">الرئيسية</a>
                     <a href="./series.html"
                         class="font-medium text-white transition-colors duration-300 hover:text-fire-red">مسلسلات</a>
@@ -184,672 +185,225 @@
             </div>
         </div>
     </nav>
-    <!-- Overlay البحث -->
-    <div id="search-overlay"
-        class="flex hidden fixed inset-0 z-50 justify-center items-start px-4 pt-[4rem] backdrop-blur-sm transition-all duration-300 bg-black/60 rtl:pr-6 ltr:pl-6">
-
-        <div class="flex justify-between items-center px-8 w-full">
-            <!-- صندوق البحث -->
-            <div class="relative bg-[#1a1d24] rounded-full flex items-center px-5 py-3 w-full shadow-lg">
-                <input type="text" placeholder="مسلسلات، برامج و أفلام"
-                    class="w-full text-sm placeholder-gray-400 text-right text-white bg-transparent focus:outline-none" />
-                <i class="absolute left-4 text-sm text-gray-400 fas fa-search rtl:left-auto rtl:right-[4px]"></i>
-            </div>
-            <!-- زر الإلغاء -->
-            <div class="flex justify-end pr-8 mb-3">
-                <button id="close-search" class="text-sm text-white transition hover:text-red-500">إلغاء</button>
-            </div>
-        </div>
-        <!-- قائمة نتائج البحث -->
-        <ul id="search-results"
-            class="mt-4 bg-[#1a1d24] rounded-lg divide-y divide-gray-700 overflow-hidden text-sm text-white">
-
-            <li class="px-4 py-3 transition cursor-pointer hover:bg-gray-700">
-                <a href="#result1" class="block">
-                    <p class="mb-1 font-bold">فهد البطل</p>
-                    <p class="text-xs text-gray-400">حفل الفنان فهد الكبيسي وأحدث أعماله</p>
-                </a>
-            </li>
-
-            <li class="px-4 py-3 transition cursor-pointer hover:bg-gray-700">
-                <a href="#result2" class="block">
-                    <p class="mb-1 font-bold">اسم مسلسل آخر</p>
-                    <p class="text-xs text-gray-400">وصف مختصر جدًا له يظهر هنا</p>
-                </a>
-            </li>
-
-        </ul>
-
-    </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="overflow-hidden relative h-screen">
-        <!-- Slides -->
-        <div class="absolute inset-0 opacity-100 hero-slide">
-            <img src="./assets/images/slider/slider1.avif" alt="Hero Background"
-                class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full"
-                playsinline></video>
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-        <div class="absolute inset-0 opacity-0 hero-slide">
-            <img src="./assets/images/slider/slider2.avif" alt="Hero Background"
-                class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full"
-                playsinline></video>
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-        <div class="absolute inset-0 opacity-0 hero-slide">
-            <img src="./assets/images/slider/slider3.avif" alt="Hero Background"
-                class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full"
-                playsinline></video>
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-        <div class="absolute inset-0 opacity-0 hero-slide">
-            <img src="./assets/images/slider/slider4.avif" alt="Hero Background"
-                class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full"
-                playsinline></video>
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-        <div class="absolute inset-0 opacity-0 hero-slide">
-            <img src="./assets/images/slider/slider5.avif" alt="Hero Background"
-                class="object-cover absolute inset-0 w-full h-full" />
-            <video src="./assets/videos/mov_bbb.mp4" class="hidden object-cover absolute inset-0 w-full h-full"
-                playsinline></video>
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-
-
-        <!-- Mute/Unmute Button -->
-        <button id="muteBtn" class="absolute left-10 top-28 z-20 p-3 text-white rounded-full bg-black/60"
-            data-state="muted">
-            <svg class="w-6 h-6 mute-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                    d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z">
-                </path>
-            </svg>
-        </button>
-
-        <!-- Hero Content -->
-        <div class="flex relative z-10 items-center h-full">
-            <div class="container px-6 mx-auto">
-                <div
-                    class="max-w-[25rem] opacity-80 transition-all duration-500 ease-in-out transform translate-x-0 hero-content hover:opacity-100 hover:-translate-x-10">
-                    <div class="mb-8 h-[80px] logo-wrapper transition-all duration-500 ease-in-out">
-                        <img src="./assets/images/logos/logo1.avif" alt="logo"
-                            class="object-contain h-full transition-all duration-300 hover:scale-125" />
+    <section class="flex z-50 justify-center items-center  hero-gradient px-4 pt-[5rem] backdrop-blur-sm h-[100vh]">
+        <div class="container px-6 mx-auto">
+            <div class="flex flex-col gap-8 items-center lg:flex-row">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="data:image/svg+xml,%3Csvg viewBox='0 0 600 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23000'/%3E%3Ccircle cx='200' cy='150' r='80' fill='%23333'/%3E%3Ccircle cx='400' cy='200' r='60' fill='%23555'/%3E%3Ctext x='300' y='350' text-anchor='middle' fill='white' font-size='24'%3E عال الغيران %3C/text%3E%3C/svg%3E"
+                            alt="عال الغيران" class="w-full rounded-lg shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-t to-transparent rounded-lg from-black/70"></div>
+                        <div class="absolute right-4 bottom-4">
+                            <span class="px-3 py-1 text-xs font-bold rounded-full live-indicator">● مباشر</span>
+                        </div>
                     </div>
-                    <div class="text-base text-gray-400 transition-all duration-300 episode animate-slide-up">
-                        الموسم 1، الحلقة 1
-                    </div>
-                    <div class="flex items-center my-4 space-x-2 rtl:space-x-reverse animate-slide-up">
-                        <button
-                            class="flex items-center px-2 py-2 text-lg font-bold text-white bg-gray-800 bg-opacity-80 rounded-full transition-all duration-300 hover:bg-red-700 btn-glow rtl:space-x-reverse">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                            </svg>
-                        </button>
-                        <a href="#"
-                            class="flex items-center px-8 py-2 space-x-2 text-lg font-bold text-white rounded-lg transition-all duration-300 bg-fire-red hover:bg-red-700 btn-glow rtl:space-x-reverse">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                            <span>شاهد الآن</span>
-                        </a>
-                    </div>
-                    <p
-                        class="mb-6 max-w-xl text-xl leading-relaxed text-gray-200 transition-all duration-300 md:text-lg animate-slide-up description">
-                        بعد خيانة أصدقائه والمرأة التي أحبها...
-                    </p>
-                    <div
-                        class="flex flex-wrap items-center mb-6 space-x-3 text-sm text-gray-400 rtl:space-x-reverse tags animate-slide-up">
-                        <!-- يتم توليدها ديناميكيًا -->
-                    </div>
-
                 </div>
-
-
+                <div class="text-center lg:w-1/2 lg:text-right">
+                    <h1 class="mb-4 text-4xl font-bold lg:text-6xl">عال الغيران</h1>
+                    <p class="mb-2 text-xl">مال الغبان • موسم 1 حلقة 11</p>
+                    <div class="flex gap-4 justify-center items-center mb-6 lg:justify-end">
+                        <span class="px-3 py-1 text-sm rounded-full category-tag">دراما</span>
+                        <span class="text-gray-300">إثارة وتشويق</span>
+                        <span class="text-gray-300">MBC1</span>
+                    </div>
+                    <div class="flex gap-4 justify-center lg:justify-end">
+                        <button id="watchNowBtn"
+                            class="flex gap-2 items-center px-8 py-3 text-lg font-bold bg-red-600 rounded-lg transition-colors hover:bg-red-700">
+                            <i class="fas fa-play"></i>
+                            شاهد الآن
+                        </button>
+                        <button class="px-6 py-3 font-bold bg-gray-700 rounded-lg transition-colors hover:bg-gray-600">
+                            <i class="fas fa-plus"></i>
+                            قائمتي
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <!-- Hero Navigation Dots -->
-        <div class="flex absolute bottom-8 left-1/2 z-20 space-x-3 transform -translate-x-1/2 rtl:space-x-reverse">
-            <button
-                class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img
-                    src="./assets/images/logos/logo1.avif" alt="logo1" class="object-contain w-full h-full" /></button>
-            <button
-                class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img
-                    src="./assets/images/logos/logo2.avif" alt="logo2" class="object-contain w-full h-full" /></button>
-            <button
-                class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img
-                    src="./assets/images/logos/logo3.avif" alt="logo3" class="object-contain w-full h-full" /></button>
-            <button
-                class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img
-                    src="./assets/images/logos/logo4.avif" alt="logo4" class="object-contain w-full h-full" /></button>
-            <button
-                class="w-full h-[72px] hero-dot opacity-75 hover:opacity-100 hover:scale-110 transition-all duration-300"><img
-                    src="./assets/images/logos/logo5.avif" alt="logo5" class="object-contain w-full h-full" /></button>
         </div>
     </section>
 
-    <!-- horizontal slider -->
-    <div class="overflow-visible mb-6 px-4 py-6 mx-auto max-w-[95%]">
-        <!-- عنوان القسم -->
-        <h2 class="mb-4 text-2xl font-bold text-right">الأفلام الجديدة على سهرة</h2>
-
-        <!-- سلايدر Swiper -->
-        <div class="isolate overflow-visible relative pb-44 swiper mySwiper-horizontal">
-            <div class="swiper-wrapper">
-                <script>
-                    const movies2 = [
-                        "Hello+World",
-                        "Movie+1",
-                        "Guardians",
-                        "Lost+City",
-                        "Action+Show",
-                        "Romance+Story",
-                        "The+Heist",
-                        "Last+Stand",
-                        "Arab+Drama",
-                        "Old+Legends",
-                    ];
-                    for (let title of movies2) {
-                        document.write(`
-                  <div class="swiper-slide">
-                    <div class="movie-slider-card">
-                      <img src="https://placehold.co/320x190?text=${title}" alt="${title}" class="object-cover w-full rounded-md aspect-video">
-                      <div class="movie-slider-details">
-                        <h3 class="text-lg font-bold">${title.replace(
-                            "+",
-                            " "
-                        )}</h3>
-                        <div class="movie-slider-line">
-                          <span>01:46:34</span>
-                          <span class="text-green-400">•</span>
-                          <span>كوميدي</span>
-                          <span class="text-green-400">•</span>
-                          <span>رومانسي</span>
-                        </div>
-                        <div class="pr-2 text-xs font-bold text-teal-400 border-r-4 border-teal-500">
-                          البطل الذي لا يريد القوة
-                        </div>
-                        <div class="flex items-center space-x-4 rtl:space-x-reverse animate-scale-in">
-                            <button
-                                class="flex items-center px-1 py-1 text-lg font-bold text-white bg-gray-800 bg-opacity-80 rounded-full transition-all duration-300 hover:bg-red-700 btn-glow rtl:space-x-reverse">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </button>
-                            <a href="#"
-                                class="flex items-center px-4 py-1 space-x-2 font-bold text-white rounded-lg transition-all duration-300 text-[10px] bg-fire-red hover:bg-red-700 btn-glow rtl:space-x-reverse">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                                <span>شاهد الآن</span>
-                            </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                `);
-                    }
-                </script>
+    <!-- Categories Filter -->
+    <section class="py-6 bg-gray-800">
+        <div class="container px-6 mx-auto">
+            <div class="flex overflow-x-auto gap-4 pb-2">
+                <button
+                    class="px-4 py-2 font-medium text-white whitespace-nowrap bg-red-600 rounded-full category-filter active"
+                    data-category="all">
+                    جميع القنوات
+                </button>
+                <button
+                    class="px-4 py-2 font-medium text-white whitespace-nowrap bg-gray-700 rounded-full category-filter hover:bg-gray-600"
+                    data-category="drama">
+                    دراما
+                </button>
+                <button
+                    class="px-4 py-2 font-medium text-white whitespace-nowrap bg-gray-700 rounded-full category-filter hover:bg-gray-600"
+                    data-category="news">
+                    إخبارية
+                </button>
+                <button
+                    class="px-4 py-2 font-medium text-white whitespace-nowrap bg-gray-700 rounded-full category-filter hover:bg-gray-600"
+                    data-category="sports">
+                    رياضية
+                </button>
+                <button
+                    class="px-4 py-2 font-medium text-white whitespace-nowrap bg-gray-700 rounded-full category-filter hover:bg-gray-600"
+                    data-category="variety">
+                    متنوعة
+                </button>
             </div>
-
-            <!-- الأسهم -->
-            <div class="text-white swiper-button-next"></div>
-            <div class="text-white swiper-button-prev"></div>
         </div>
-    </div>
-    <div class="overflow-visible mb-6 px-4 py-6 mx-auto max-w-[95%]">
-        <!-- عنوان القسم -->
-        <h2 class="mb-4 text-2xl font-bold text-right">مخصصة لك</h2>
+    </section>
 
-        <!-- سلايدر Swiper -->
-        <div class="isolate overflow-visible relative pb-44 swiper mySwiper-horizontal">
-            <div class="swiper-wrapper">
-                <script>
-                    const movies3 = [
-                        "Hello+World",
-                        "Movie+1",
-                        "Guardians",
-                        "Lost+City",
-                        "Action+Show",
-                        "Romance+Story",
-                        "The+Heist",
-                        "Last+Stand",
-                        "Arab+Drama",
-                        "Old+Legends",
-                    ];
-                    for (let title of movies3) {
-                        document.write(`
-                  <div class="swiper-slide">
-                    <div class="movie-slider-card">
-                      <img src="https://placehold.co/320x190?text=${title}" alt="${title}" class="object-cover w-full rounded-md aspect-video">
-                      <div class="movie-slider-details">
-                        <h3 class="text-lg font-bold">${title.replace(
-                            "+",
-                            " "
-                        )}</h3>
-                        <div class="movie-slider-line">
-                          <span>01:46:34</span>
-                          <span class="text-green-400">•</span>
-                          <span>كوميدي</span>
-                          <span class="text-green-400">•</span>
-                          <span>رومانسي</span>
-                        </div>
-                        <div class="pr-2 text-xs font-bold text-teal-400 border-r-4 border-teal-500">
-                          البطل الذي لا يريد القوة
-                        </div>
-                        <div class="flex items-center space-x-4 rtl:space-x-reverse animate-scale-in">
-                            <button
-                                class="flex items-center px-1 py-1 text-lg font-bold text-white bg-gray-800 bg-opacity-80 rounded-full transition-all duration-300 hover:bg-red-700 btn-glow rtl:space-x-reverse">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </button>
-                            <a href="#"
-                                class="flex items-center px-4 py-1 space-x-2 font-bold text-white rounded-lg transition-all duration-300 text-[10px] bg-fire-red hover:bg-red-700 btn-glow rtl:space-x-reverse">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                                <span>شاهد الآن</span>
-                            </a>
-                        </div>
-                      </div>
+    <!-- Channels Timeline -->
+    <section class="py-8">
+        <div class="container px-6 mx-auto">
+            <h2 class="mb-6 text-2xl font-bold">البرامج الحالية</h2>
+
+            <!-- Time Header -->
+            <div class="p-4 mb-4 bg-gray-800 rounded-lg">
+                <div class="flex justify-between items-center">
+                    <div class="text-lg font-bold">الوقت الحالي: <span id="currentTime" class="text-red-500"></span>
                     </div>
-                  </div>
-                `);
-                    }
-                </script>
+                    <div class="text-sm text-gray-400">جميع الأوقات بتوقيت السعودية</div>
+                </div>
             </div>
 
-            <!-- الأسهم -->
-            <div class="text-white swiper-button-next"></div>
-            <div class="text-white swiper-button-prev"></div>
+            <div id="channelsContainer" class="space-y-6">
+                <!-- Channels will be dynamically inserted here -->
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- متابعة المشاهدة -->
-    <div class="overflow-visible mb-6 px-4 py-6 mx-auto max-w-[95%]">
-        <!-- عنوان القسم -->
-        <h2 class="mb-4 text-2xl font-bold text-right">متابعة المشاهدة</h2>
-
-        <!-- سلايدر Swiper -->
-        <div class="isolate overflow-visible relative pb-44 swiper mySwiper-horizontal">
-            <div class="swiper-wrapper">
-                <script>
-                    const movies5 = [
-                        {
-                            'title': 'Hello World',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                        {
-                            'title': 'Movie 1',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                        {
-                            'title': 'Guardians',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                        {
-                            'title': 'Lost City',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                        {
-                            'title': 'Action Show',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                        {
-                            'title': 'Romance Story',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                        {
-                            'title': 'The Heist',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                        {
-                            'title': 'Last Stand',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                        {
-                            'title': 'Arab Drama',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                        {
-                            'title': 'Old Legends',
-                            'time': '01:46:34',
-                            'progress': '50%',
-                        },
-                    ];
-                    for (let movie of movies5) {
-                        document.write(`
-                    <div class="swiper-slide">
-                    <div class="movie-slider-card">
-                        <div class="relative">
-                            <img src="https://placehold.co/320x190?text=${movie.title}" alt="${movie.title}" class="object-cover w-full rounded-md aspect-video">
-                            <!-- شريط المدة -->
-                            <div class="absolute bottom-0 left-0 w-[${movie.progress}] h-1 bg-teal-400"></div>
-                            <!-- زر التشغيل فوق الصورة -->
-                            <button class="flex absolute inset-0 justify-end items-end p-4 gap-[8px]">
-                                <span class="text-white md:vw-text-[10] text-[10px]">${movie.time}</span>
-                                <span class="relative flex shrink-0 items-center justify-center text-shahidGray h-[24px] w-[24px] md:vw-h-[24] md:vw-w-[24]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="absolute inset-0 w-full h-full group-hover/media-btn:hidden">
-                                        <defs>
-                                            <linearGradient id="linearGradient-0.5315750833316147" x1="0%" x2="100%" y1="50%" y2="50%">
-                                                <stop offset="0%" stop-color="#0C9"></stop>
-                                                <stop offset="100%" stop-color="#09F"></stop>
-                                            </linearGradient>
-                                        </defs>
-                                        <g fill="none" fill-opacity="0.4" fill-rule="evenodd" stroke="none" stroke-width="1">
-                                            <rect width="31" height="31" x="0.5" y="0.5" fill="#181D25" stroke="url(#linearGradient-0.5315750833316147)" rx="15.5"></rect>
-                                        </g>
-                                    </svg>
-                                    <span class="hidden absolute inset-0 w-full h-full rounded-full bg-primary group-hover/media-btn:inline-block"></span>
-                                    <img alt="playIcon" title="لعب" class="relative h-[16px] w-[16px] 2xl:vw-h-[14] 2xl:vw-w-[14]" src="https://shahid.mbc.net/staticFiles/production/static/images/shdicons-24-2-px-player-play-filled.svg">
-                                </span>
-                            </button>
-                        </div>
-                        <div class="movie-slider-details">
-                            <div class="pr-2 text-xs font-bold text-teal-400 border-r-4 border-teal-500">
-                                تابع المسلسل الحلقة 29
-                            </div>
-                            <div class="flex items-center space-x-4 rtl:space-x-reverse animate-scale-in">
-                                <div class="flex gap-x-4">
-                                    <!-- زر: المزيد من المعلومات -->
-                                    <button class="flex gap-1 items-center transition-all duration-200 group hover:text-white">
-                                    <span class="flex relative justify-center items-center w-6 h-6 rounded-full transition-transform duration-300 shrink-0 text-shahidGray bg-white/5 group-hover:rotate-12 group-hover:scale-110">
-                                        <i class="fa-solid fa-info"></i>
-                                    </span>
-                                    <span class="text-xs truncate transition-colors duration-200 text-shahidGray group-hover:text-white">
-                                        المزيد من المعلومات
-                                    </span>
-                                    </button>
-
-                                    <!-- زر: إزالة -->
-                                    <button class="flex gap-1 items-center transition-all duration-200 group hover:text-white">
-                                    <span class="relative flex shrink-0 items-center justify-center text-shahidGray h-6 w-6 rounded-full bg-white/5 group-hover:rotate-[18deg] group-hover:scale-110 transition-transform duration-300">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </span>
-                                    <span class="text-xs truncate transition-colors duration-200 text-shahidGray group-hover:text-white">
-                                        إزالة
-                                    </span>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                `);
-                    }
-                </script>
-            </div>
-
-            <!-- الأسهم -->
-            <div class="text-white swiper-button-next"></div>
-            <div class="text-white swiper-button-prev"></div>
-        </div>
-    </div>
-
-    <!-- vertical slider -->
-    <div class="overflow-visible mb-6 px-4 py-6 mx-auto max-w-[95%]">
-        <h2 class="mb-4 text-2xl font-bold text-right">
-            الأكثر إكمالاً حتى آخر ثانية
-        </h2>
-
-        <div class="overflow-visible relative swiper mySwiper-vertical">
-            <div class="swiper-wrapper">
-                <script>
-                    const movies = [
-                        "مسلسل+1",
-                        "مسلسل+2",
-                        "مسلسل+3",
-                        "مسلسل+4",
-                        "مسلسل+5",
-                        "مسلسل+6",
-                        "مسلسل+7",
-                        "مسلسل+8",
-                        "مسلسل+9",
-                        "مسلسل+10",
-                    ];
-                    for (let title of movies) {
-                        document.write(`
-                  <div class="swiper-slide w-[140px]">
-                    <div class="movie-vertical-card">
-                      <img src="https://placehold.co/270x400?text=${title}" alt="${title}" class="object-cover w-full rounded-md">
-                      <div class="text-xs text-center movie-vertical-details">
-                        <span class="block font-bold text-white">${title.replace(
-                            "+",
-                            " "
-                        )}</span>
-                        <span class="block mt-1 text-blue-400">حلقة متوفرة مجاناً</span>
-                      </div>
-                    </div>
-                  </div>
-                `);
-                    }
-                </script>
-            </div>
-
-            <div class="text-white swiper-button-next"></div>
-            <div class="text-white swiper-button-prev"></div>
-        </div>
-    </div>
-
-    <div class="mb-6 px-4 py-6 mx-auto max-w-[95%]">
-        <h2 class="mb-4 text-2xl font-bold text-right">أفضل 10 أعمال</h2>
-
-        <div class="overflow-visible relative swiper best10Swiper">
-            <div class="swiper-wrapper">
-                <script>
-                    const top10 = [
-                        "https://placehold.co/400x600?text=1",
-                        "https://placehold.co/400x600?text=2",
-                        "https://placehold.co/400x600?text=3",
-                        "https://placehold.co/400x600?text=4",
-                        "https://placehold.co/400x600?text=5",
-                        "https://placehold.co/400x600?text=6",
-                        "https://placehold.co/400x600?text=7",
-                        "https://placehold.co/400x600?text=8",
-                        "https://placehold.co/400x600?text=9",
-                        "https://placehold.co/400x600?text=10",
-                    ];
-                    top10.forEach((url, index) => {
-                        document.write(`
-                  <div class="swiper-slide">
-                    <div class="overflow-hidden relative rounded-md group">
-                      <img src="${url}" alt="Top ${index + 1}" class="object-cover w-full h-auto rounded-md transition-transform duration-300 group-hover:scale-105">
-                      <div class="absolute top-0 right-0 z-10 px-3 py-1 text-xs font-bold text-white bg-pink-600 rounded-bl-md">
-                        TOP<br>${index + 1}
-                      </div>
-                      <div class="py-2 text-sm text-center text-white bg-gray-900">حلقات متوفرة مجانًا</div>
-                    </div>
-                  </div>
-                `);
-                    });
-                </script>
-            </div>
-
-            <!-- الأسهم -->
-            <div class="text-white swiper-button-next"></div>
-            <div class="text-white swiper-button-prev"></div>
-        </div>
-    </div>
-
-    <footer class="bg-[#0f0f0f] text-white pt-10 pb-6 px-6 mt-12 border-t border-gray-800">
-        <div class="grid grid-cols-1 gap-8 mx-auto max-w-screen-xl md:grid-cols-3">
-
-            <!-- الشعار والوصف -->
-            <div>
-                <h1 class="mb-3 text-2xl font-extrabold text-red-600">سهرة بلس</h1>
-                <p class="text-sm leading-relaxed text-gray-400">
-                    منصة ترفيهية لمشاهدة أحدث الأفلام والمسلسلات بجودة عالية وبدون إعلانات مزعجة. استمتع بمحتوى متجدد
-                    يوميًا أينما كنت.
-                </p>
-            </div>
-
-            <!-- روابط مهمة -->
-            <div class="md:text-center">
-                <h3 class="mb-3 text-lg font-semibold">روابط سريعة</h3>
-                <ul class="space-y-2 text-sm text-gray-300">
-                    <li><a href="#" class="transition hover:text-red-400">الرئيسية</a></li>
-                    <li><a href="#" class="transition hover:text-red-400">الأفلام</a></li>
-                    <li><a href="#" class="transition hover:text-red-400">المسلسلات</a></li>
-                    <li><a href="#" class="transition hover:text-red-400">بث مباشر</a></li>
-                    <li><a href="#" class="transition hover:text-red-400">اتصل بنا</a></li>
-                </ul>
-            </div>
-
-            <!-- روابط التطبيقات -->
-            <div class="md:text-left">
-                <h3 class="mb-3 text-lg font-semibold">حمل التطبيق</h3>
-                <div class="flex flex-col space-y-3">
-                    <a href="#"
-                        class="inline-flex items-center px-4 py-2 space-x-2 text-sm text-white bg-gray-800 rounded-md transition hover:bg-gray-700 rtl:space-x-reverse">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M17.6 14.3c-.1 0-.1 0 0 0-1.3 0-2.3.6-2.9 1.1-.6.5-1.3 1.1-2.3 1.1s-1.7-.6-2.3-1.1c-.6-.5-1.6-1.1-2.9-1.1h-.1C4.3 14.3 2 16.2 2 18.6v.4c0 .6.5 1 1 1h18c.5 0 1-.4 1-1v-.4c0-2.4-2.3-4.3-4.4-4.3z" />
-                        </svg>
-                        <span>تحميل للأندرويد</span>
-                    </a>
-                    <a href="#"
-                        class="inline-flex items-center px-4 py-2 space-x-2 text-sm text-white bg-gray-800 rounded-md transition hover:bg-gray-700 rtl:space-x-reverse">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M17.5 3.4c-1.4.1-3 1.1-3.6 2.3-.8 1.4-.6 3.3.3 4.5.9 1.2 2.3 2 3.6 1.9 1.2-.1 2.7-.8 3.3-1.8.7-1.2.8-2.9.3-4.3-.6-1.5-2-2.5-3.9-2.6zM12 8c-1.6 0-2.9 1.2-3.4 2.8C8 13 8.9 15 10.7 16c1.8.9 3.6 0 4.4-1.7C15.9 12.5 14.3 8 12 8z" />
-                        </svg>
-                        <span>تحميل للآيفون</span>
-                    </a>
+    <!-- Program Details Modal -->
+    <div id="programModal" class="flex hidden fixed inset-0 z-50 justify-center items-center p-4 modal-backdrop">
+        <div class="bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 id="modalTitle" class="text-2xl font-bold"></h3>
+                    <button id="closeModal" class="text-2xl text-gray-400 hover:text-white">×</button>
+                </div>
+                <div id="modalContent" class="space-y-4">
+                    <!-- Modal content will be dynamically inserted -->
+                </div>
+                <div class="flex gap-4 mt-6">
+                    <button id="watchProgramBtn"
+                        class="px-6 py-2 font-bold bg-red-600 rounded-lg transition-colors hover:bg-red-700">
+                        <i class="mr-2 fas fa-play"></i>
+                        شاهد البرنامج
+                    </button>
+                    <button class="px-6 py-2 font-bold bg-gray-700 rounded-lg transition-colors hover:bg-gray-600">
+                        <i class="mr-2 fas fa-bell"></i>
+                        تذكير
+                    </button>
                 </div>
             </div>
         </div>
-
-        <!-- الحقوق -->
-        <div class="pt-4 mt-10 text-xs text-center text-gray-500 border-t border-gray-800">
-            &copy; 2025 سهرة بلس. جميع الحقوق محفوظة.
-        </div>
-    </footer>
-
-
-    <!-- ملف: profile-modal -->
-    <div id="profileModal"
-        class="flex flex-col hidden fixed inset-0 justify-center items-center bg-background-base z-[9999]">
-        <div class="flex justify-end p-4 w-full">
-            <button onclick="closeModal('profileModal')" class="text-2xl">&times;</button>
-        </div>
-        <div class="px-4 w-full max-w-6xl text-center text-white">
-            <div class="flex justify-center items-center space-x-4 rtl:space-x-reverse">
-                <h1 class="mb-6 text-5xl font-black text-fire-red font-arabic">
-                    سهرة بلس
-                </h1>
-            </div>
-            <h2 class="mb-6 text-2xl font-bold">مرحبًا👋 اختر من يُشاهد الآن</h2>
-            <div id="profileList" class="flex flex-wrap gap-6 justify-center">
-                <!-- يتم توليد العناصر ديناميكياً في متغير تحت اسمه profiles من خلاله يمكن تعبئة المتغيرات هين -->
-            </div>
-            <button id="manageProfilesBtn" class="mt-10 underline hover:text-sky-400">إدارة الملفات</button>
-        </div>
     </div>
 
-    <!-- إدارة الملفات -->
-    <div id="manageModal"
-        class="hidden overflow-y-auto fixed inset-0 py-10 bg-background-base z-[9999] flex flex-col justify-center items-center ">
-        <div class="px-4 mx-auto max-w-5xl text-white">
-            <div class="flex justify-between items-center mb-10">
-                <h2 class="text-3xl font-bold">إدارة الملفات</h2>
-                <button onclick="closeModal('manageModal')" class="text-2xl">&times;</button>
-            </div>
-
-            <div id="manageList" class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
-                <!-- يتم توليد العناصر ديناميكياً -->
+    <!-- Live Stream Modal -->
+    <div id="liveStreamModal" class="hidden fixed inset-0 z-50 modal-backdrop">
+        <div class="relative w-full h-full bg-black">
+            <button id="closeLiveStream"
+                class="absolute left-10 top-16 z-10 p-2 text-white rounded-full bg-black/50 hover:bg-black/70">
+                <i class="text-xl fas fa-times"></i>
+            </button>
+            <div class="flex justify-center items-center w-full h-full">
+                <div class="text-center">
+                    <div class="mx-auto mb-4 w-16 h-16 rounded-full border-t-2 border-red-500 animate-spin"></div>
+                    <h3 class="mb-2 text-2xl font-bold">جاري تحميل البث المباشر...</h3>
+                    <p class="text-gray-400">يرجى الانتظار</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- فورم تعديل/إضافة -->
-    <div id="editModal" class="flex hidden fixed inset-0 justify-center items-center px-4 bg-background-base z-[9999]">
-        <div class="bg-[#1e222a] rounded-lg w-full max-w-md p-6 text-white">
-            <div class="text-center">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="mb-4 text-2xl font-bold">إدارة الملف</h2>
-                    <button onclick="closeModal('editModal')" class="text-2xl">&times;</button>
-                </div>
-                <div class="flex justify-center mb-4">
-                    <div id="editAvatar" class="overflow-hidden relative w-28 h-28 rounded-full cursor-pointer">
-                        <img id="editAvatarImg" src="" class="object-cover w-full h-full">
-                        <div class="flex absolute inset-0 justify-center items-center bg-black bg-opacity-50 opacity-0 transition hover:opacity-100"
-                            onclick="document.getElementById('editAvatarInput').click()">
-                            <i class="text-lg text-white fas fa-pen"></i>
-                        </div>
-                        <input id="editAvatarInput" type="file" class="hidden" accept="image/*"
-                            onchange="loadAvatar(event)">
-                    </div>
-                </div>
-                <label class="block mb-1 text-sm text-gray-300">اسم الملف</label>
-                <input id="editName" type="text" class="py-2 mb-4 w-full text-center text-black rounded-full">
-
-                <label class="block mb-1 text-sm text-gray-300">اللغة</label>
-                <select id="editLang" class="py-2 mb-4 w-full text-center text-black rounded-full">
-                    <option value="ar">العربية</option>
-                    <option value="en">English</option>
-                </select>
-
-                <label class="block mb-2 text-sm text-gray-300">حساب أطفال</label>
-                <label class="inline-flex items-center mb-4 cursor-pointer">
-                    <input id="editKids" type="checkbox" class="sr-only peer">
-                    <div class="relative w-11 h-6 bg-gray-600 rounded-full transition peer peer-checked:bg-emerald-500">
-                        <div
-                            class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition peer-checked:translate-x-full">
-                        </div>
-                    </div>
-                </label>
-
-                <div id="ageSelector" class="hidden">
-                    <label class="block mb-1 text-sm text-gray-300">تاريخ الميلاد</label>
-                    <input id="editBirth" type="month" class="py-2 mb-2 w-full text-center text-black rounded-full">
-                    <label class="inline-flex items-center text-sm">
-                        <input type="checkbox" checked class="ml-2 form-checkbox accent-emerald-500">
-                        تحديد المحتوى المناسب لعمر الطفل
-                    </label>
-                </div>
-
-                <button onclick="saveProfile()"
-                    class="py-2 mt-6 w-full font-bold text-white bg-gradient-to-r from-red-700 to-gray-900 rounded-full transition-all duration-300 hover:from-red-800 hover:to-black">حفظ</button>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Js -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./assets/js/script.js"></script>
     <script>
-        const profiles = [
-            { name: "أبو نايف", img: "https://placehold.co/100x100", lang: "ar", kids: false },
-            { name: "mero", img: "./assets/images/avatar.jpg", lang: "ar", kids: false },
-            { name: "الأطفال", img: "https://placehold.co/100x100?text=Kids", lang: "ar", kids: true },
-            { name: "محمد", img: "./assets/images/avatar.jpg", lang: "ar", kids: false },
-            { name: "مريم", img: "https://placehold.co/100x100", lang: "ar", kids: false }
+        // Channel data
+        const channelsData = [
+            {
+                id: 'mbc1',
+                name: 'MBC1',
+                logo: 'data:image/svg+xml,%3Csvg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="50" cy="50" r="45" fill="%23e50914"/%3E%3Ctext x="50" y="60" text-anchor="middle" fill="white" font-size="20" font-weight="bold"%3EMBC1%3C/text%3E%3C/svg%3E',
+                category: 'drama',
+                programs: [
+                    { name: 'نشرة الأخبار', start: '08:00', end: '09:00', description: 'آخر الأخبار المحلية والعالمية' },
+                    { name: 'صباح الخير يا عرب', start: '09:00', end: '12:00', description: 'برنامج صباحي متنوع' },
+                    { name: 'عال الغيران', start: '12:00', end: '13:00', description: 'مسلسل درامي مثير', current: true },
+                    { name: 'أخبار الظهيرة', start: '13:00', end: '13:30', description: 'نشرة إخبارية' },
+                    { name: 'مسلسل الهيبة', start: '13:30', end: '14:30', description: 'الجزء الجديد من المسلسل الشهير' },
+                    { name: 'برنامج كلام نواعم', start: '14:30', end: '15:30', description: 'برنامج نسائي' }
+                ]
+            },
+            {
+                id: 'mbc2',
+                name: 'MBC2',
+                logo: 'data:image/svg+xml,%3Csvg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="50" cy="50" r="45" fill="%2300a8cc"/%3E%3Ctext x="50" y="60" text-anchor="middle" fill="white" font-size="18" font-weight="bold"%3EMBC2%3C/text%3E%3C/svg%3E',
+                category: 'drama',
+                programs: [
+                    { name: 'فيلم هوليوودي', start: '08:00', end: '10:00', description: 'فيلم أكشن مترجم' },
+                    { name: 'مسلسل أجنبي', start: '10:00', end: '11:00', description: 'مسلسل مدبلج' },
+                    { name: 'فيلم كوميدي', start: '11:00', end: '12:30', description: 'كوميديا عائلية' },
+                    { name: 'برنامج سينمائي', start: '12:30', end: '13:00', description: 'أحدث الأفلام والنجوم', current: true },
+                    { name: 'فيلم رومانسي', start: '13:00', end: '15:00', description: 'قصة حب مؤثرة' }
+                ]
+            },
+            {
+                id: 'mbc3',
+                name: 'MBC3',
+                logo: 'data:image/svg+xml,%3Csvg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="50" cy="50" r="45" fill="%23ff6b35"/%3E%3Ctext x="50" y="60" text-anchor="middle" fill="white" font-size="18" font-weight="bold"%3EMBC3%3C/text%3E%3C/svg%3E',
+                category: 'variety',
+                programs: [
+                    { name: 'كرتون الصباح', start: '08:00', end: '10:00', description: 'أفلام كرتون للأطفال' },
+                    { name: 'عالم ديزني', start: '10:00', end: '11:00', description: 'أفضل أفلام ديزني' },
+                    { name: 'برامج تعليمية', start: '11:00', end: '12:00', description: 'برامج تعليمية للأطفال' },
+                    { name: 'مغامرات توم وجيري', start: '12:00', end: '12:30', description: 'الحلقات الكلاسيكية', current: true },
+                    { name: 'عائلة سمبسون', start: '12:30', end: '13:00', description: 'مسلسل كرتوني' },
+                    { name: 'أفلام كرتون', start: '13:00', end: '15:00', description: 'مجموعة من أفلام الكرتون' }
+                ]
+            },
+            {
+                id: 'mbc_news',
+                name: 'الإخبارية',
+                logo: 'data:image/svg+xml,%3Csvg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="50" cy="50" r="45" fill="%23d32f2f"/%3E%3Ctext x="50" y="45" text-anchor="middle" fill="white" font-size="12" font-weight="bold"%3EMBC%3C/text%3E%3Ctext x="50" y="65" text-anchor="middle" fill="white" font-size="10"%3ENews%3C/text%3E%3C/svg%3E',
+                category: 'news',
+                programs: [
+                    { name: 'صباح الأخبار', start: '08:00', end: '09:00', description: 'آخر المستجدات الإخبارية' },
+                    { name: 'بانوراما', start: '09:00', end: '10:00', description: 'برنامج إخباري تحليلي' },
+                    { name: 'نشرة عاجلة', start: '10:00', end: '10:30', description: 'أهم الأخبار العاجلة' },
+                    { name: 'الأخبار الآن', start: '10:30', end: '11:00', description: 'تقارير إخبارية مباشرة' },
+                    { name: 'حديث الساعة', start: '11:00', end: '12:00', description: 'نقاش سياسي واقتصادي' },
+                    { name: 'نشرة الظهيرة', start: '12:00', end: '13:00', description: 'تغطية شاملة للأحداث', current: true }
+                ]
+            },
+            {
+                id: 'mbc_sports',
+                name: 'الرياضية',
+                logo: 'data:image/svg+xml,%3Csvg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="50" cy="50" r="45" fill="%23388e3c"/%3E%3Ccircle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-width="3"/%3E%3C/svg%3E',
+                category: 'sports',
+                programs: [
+                    { name: 'صباح الرياضة', start: '08:00', end: '09:00', description: 'أخبار رياضية صباحية' },
+                    { name: 'الدوري السعودي', start: '09:00', end: '10:00', description: 'أخبار الدوري المحلي' },
+                    { name: 'كرة عالمية', start: '10:00', end: '11:00', description: 'أخبار كرة القدم العالمية' },
+                    { name: 'لقاء رياضي', start: '11:00', end: '12:00', description: 'لقاءات مع النجوم' },
+                    { name: 'استوديو التحليل', start: '12:00', end: '13:00', description: 'تحليل المباريات والأحداث', current: true }
+                ]
+            }
         ];
+        const categories = {
+            'drama': 'دراما',
+            'news': 'إخبارية',
+            'sports': 'رياضية',
+            'variety': 'متنوعة'
+        };
+        let currentTimeMinutes = 0;
     </script>
-    <script src="./assets/js/profile.js"></script>
+    <script src="./assets/js/live.js"></script>
 </body>
 
 </html>
