@@ -256,3 +256,22 @@ $(document).keydown(function (e) {
 
 // Initialize scroll position
 setTimeout(scrollToCurrentTime, 1000);
+
+$("#watchNow").on("click", function (e) {
+  e.preventDefault();
+  const video = document.getElementById("heroVideo");
+
+  // شغل الفيديو
+  video.play();
+
+  // ادخل وضع ملء الشاشة
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.webkitRequestFullscreen) {
+    // Safari
+    video.webkitRequestFullscreen();
+  } else if (video.msRequestFullscreen) {
+    // IE/Edge
+    video.msRequestFullscreen();
+  }
+});
