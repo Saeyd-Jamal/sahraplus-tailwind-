@@ -3,7 +3,7 @@ const maxProfiles = 5;
 function renderProfiles() {
   const container = $("#profileList");
   container.empty();
-  profiles.forEach(profile => {
+  profiles.forEach((profile) => {
     container.append(`
       <div class="cursor-pointer group" onclick="switchProfile('${profile.name}','${profile.img}')">
         <img src="${profile.img}" class="w-44 h-44 rounded-full border-4 border-transparent transition group-hover:border-sky-500 group-hover:scale-110" />
@@ -39,24 +39,25 @@ function renderManageList() {
 }
 
 function openEdit(index) {
-  const p = profiles[index] || { name: '', img: 'https://placehold.co/100x100', lang: 'ar', kids: false };
+  const p = profiles[index] || {
+    name: "",
+    img: "https://placehold.co/100x100",
+    lang: "ar",
+    kids: false,
+  };
   $("#editModal").removeClass("hidden");
   $("#editName").val(p.name);
-  $("#editLang").val(p.lang || 'ar');
+  $("#editLang").val(p.lang || "ar");
   $("#editAvatarImg").attr("src", p.img);
   $("#editKids").prop("checked", p.kids || false);
-  $("#ageSelector").toggleClass("hidden", !(p.kids));
+  $("#ageSelector").toggleClass("hidden", !p.kids);
   $("#editBirth").val(p.age || 2013);
   $("#editModal").data("index", index);
 }
 
-function loadAvatar(event) {
-  const file = event.target.files[0];
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    $("#editAvatarImg").attr("src", e.target.result);
-  };
-  reader.readAsDataURL(file);
+function selectAvatar(src) {
+  $("#editAvatarImg").attr("src", src);
+  $("#avatarPickerModal").addClass("hidden");
 }
 
 function saveProfile() {

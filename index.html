@@ -822,14 +822,13 @@
                     <button onclick="closeModal('editModal')" class="text-2xl">&times;</button>
                 </div>
                 <div class="flex justify-center mb-4">
-                    <div id="editAvatar" class="overflow-hidden relative w-28 h-28 rounded-full cursor-pointer">
+                    <div id="editAvatar" class="overflow-hidden relative w-28 h-28 rounded-full cursor-pointer"
+                        onclick="$('#avatarPickerModal').removeClass('hidden')">
                         <img id="editAvatarImg" src="" class="object-cover w-full h-full">
-                        <div class="flex absolute inset-0 justify-center items-center bg-black bg-opacity-50 opacity-0 transition hover:opacity-100"
-                            onclick="document.getElementById('editAvatarInput').click()">
+                        <div
+                            class="flex absolute inset-0 justify-center items-center bg-black bg-opacity-50 opacity-0 transition hover:opacity-100">
                             <i class="text-lg text-white fas fa-pen"></i>
                         </div>
-                        <input id="editAvatarInput" type="file" class="hidden" accept="image/*"
-                            onchange="loadAvatar(event)">
                     </div>
                 </div>
                 <label class="block mb-1 text-sm text-gray-300">اسم الملف</label>
@@ -866,6 +865,31 @@
         </div>
     </div>
 
+    <!-- Modal اختيار الصور -->
+    <div id="avatarPickerModal"
+        class="fixed inset-0 z-[99999] bg-black bg-opacity-80 flex justify-center items-center hidden">
+        <div class="bg-[#1e222a] text-white p-6 rounded-lg w-full max-w-xl text-center">
+            <h2 class="mb-4 text-xl font-bold">اختر صورة الملف</h2>
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <!-- صور جاهزة -->
+                <img src="https://placehold.co/100x100?text=1"
+                    class="w-20 h-20 rounded-full transition cursor-pointer hover:scale-105"
+                    onclick="selectAvatar(this.src)">
+                <img src="https://placehold.co/100x100?text=2"
+                    class="w-20 h-20 rounded-full transition cursor-pointer hover:scale-105"
+                    onclick="selectAvatar(this.src)">
+                <img src="https://placehold.co/100x100?text=3"
+                    class="w-20 h-20 rounded-full transition cursor-pointer hover:scale-105"
+                    onclick="selectAvatar(this.src)">
+                <img src="https://placehold.co/100x100?text=Kids"
+                    class="w-20 h-20 rounded-full transition cursor-pointer hover:scale-105"
+                    onclick="selectAvatar(this.src)">
+            </div>
+            <button onclick="$('#avatarPickerModal').addClass('hidden')"
+                class="px-6 py-2 bg-gray-700 rounded hover:bg-gray-600">إغلاق</button>
+        </div>
+    </div>
+
 
 
     <!-- Js -->
@@ -878,7 +902,6 @@
             { name: "mero", img: "./assets/images/avatar.jpg", lang: "ar", kids: false },
             { name: "الأطفال", img: "https://placehold.co/100x100?text=Kids", lang: "ar", kids: true },
             { name: "محمد", img: "./assets/images/avatar.jpg", lang: "ar", kids: false },
-            { name: "مريم", img: "https://placehold.co/100x100", lang: "ar", kids: false }
         ];
     </script>
     <script src="./assets/js/profile.js"></script>
