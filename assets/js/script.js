@@ -48,7 +48,7 @@ const swiperVertical = new Swiper(".mySwiper-vertical", {
 });
 
 const swiperCategories = new Swiper(".mySwiper-categories", {
-  slidesPerView: 6.2,
+  slidesPerView: 5.2,
   spaceBetween: 10,
   navigation: {
     nextEl: ".swiper-button-next",
@@ -57,8 +57,8 @@ const swiperCategories = new Swiper(".mySwiper-categories", {
   rtl: true,
   breakpoints: {
     320: { slidesPerView: 3.2 },
-    640: { slidesPerView: 5.2 },
-    1024: { slidesPerView: 8.2 },
+    640: { slidesPerView: 4.2 },
+    1024: { slidesPerView: 5.2 },
   },
   on: {
     init: toggleNavButtons,
