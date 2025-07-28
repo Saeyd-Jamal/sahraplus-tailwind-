@@ -203,7 +203,7 @@
                     <input type="password" placeholder="كلمة المرور الجديدة"
                         class="p-3 w-full bg-gray-800 rounded-md" />
                     <input type="password" placeholder="تأكيد كلمة المرور" class="p-3 w-full bg-gray-800 rounded-md" />
-                    <button class="px-4 py-2 font-bold bg-green-600 rounded-md hover:bg-green-700">حفظ
+                    <button onclick="toastr.success('تم الحفظ بنجاح', 'نجاح!')" class="px-4 py-2 font-bold bg-green-600 rounded-md hover:bg-green-700">حفظ
                         التغييرات</button>
                 </form>
             </div>
@@ -379,6 +379,11 @@
         </main>
     </div>
 
+    <!-- Js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="./assets/js/script.js"></script>
     <script>
         const buttons = document.querySelectorAll('.tab-btn');
         const tabs = document.querySelectorAll('.tab-content');
@@ -409,6 +414,7 @@
     <script>
         function deleteDevice(btn) {
             btn.closest('.bg-gray-800').remove();
+            toastr.error("تم الحذف بنجاح", "نجاح!");
         }
 
         let currentEditingCard = null;
@@ -418,6 +424,7 @@
             const name = currentEditingCard.querySelector('span').textContent;
             document.getElementById('editDeviceName').value = name;
             document.getElementById('editModal').classList.remove('hidden');
+            toastr.success("تم التبديل بنجاح", "نجاح!");
         }
 
         function closeModal() {
@@ -430,23 +437,14 @@
                 currentEditingCard.querySelector('span').textContent = newName;
                 closeModal();
             }
+            toastr.success("تم الحفظ بنجاح", "نجاح!");
         }
     </script>
 
     <!-- Pin -->
     <script>
         document.getElementById("savePinBtn").addEventListener("click", function () {
-            const alertBox = document.getElementById("successAlert");
-
-            // ✅ عرض الرسالة
-            alertBox.classList.remove("hidden");
-            alertBox.classList.add("animate-slide-in");
-
-            // ⏳ إخفاء الرسالة بعد 3 ثوانٍ
-            setTimeout(() => {
-                alertBox.classList.add("hidden");
-                alertBox.classList.remove("animate-slide-in");
-            }, 3000);
+            toastr.success("تم الحفظ بنجاح", "نجاح!");
         });
         const inputs = document.querySelectorAll(".pin-input");
 

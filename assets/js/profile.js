@@ -58,6 +58,7 @@ function openEdit(index) {
 function selectAvatar(src) {
   $("#editAvatarImg").attr("src", src);
   $("#avatarPickerModal").addClass("hidden");
+  toastr.success("تم الحفظ بنجاح", "نجاح!");
 }
 
 function saveProfile() {
@@ -78,6 +79,7 @@ function saveProfile() {
   closeModal("editModal");
   renderManageList();
   renderProfiles();
+  toastr.success("تم الحفظ بنجاح", "نجاح!");
 }
 
 // الأحداث
@@ -94,6 +96,7 @@ function switchProfile(name, img) {
   closeModal("profileModal");
   $("#profile-name").text(name);
   $(".profile-img").attr("src", img);
+  toastr.success("تم التبديل بنجاح", "نجاح!");
 }
 
 $("#manageProfilesBtn").on("click", () => {

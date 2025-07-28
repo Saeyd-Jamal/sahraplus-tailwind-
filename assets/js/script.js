@@ -137,12 +137,14 @@ $(document).ready(function () {
     e.stopPropagation();
     $("#menu-profile").addClass("hidden");
     $("#menu-language").removeClass("hidden");
+    toastr.success("تم التبديل بنجاح", "نجاح!");
   });
 
   // رجوع من قائمة اللغة إلى الملف الشخصي
   $("#back-to-profile").on("click", function () {
     $("#menu-language").addClass("hidden");
     $("#menu-profile").removeClass("hidden");
+    toastr.success("تم التبديل بنجاح", "نجاح!");
   });
 });
 
@@ -292,3 +294,23 @@ $(function () {
 
   showSlide(currentIndex);
 });
+
+
+//  Toast Options
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-left", // مكان الإشعار
+  "preventDuplicates": true,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "4000", // مدة بقاء الإشعار
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
