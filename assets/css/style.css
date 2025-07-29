@@ -14,7 +14,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #00FF87;
+  background-color: #00ff87;
   border-radius: 2px;
 }
 
@@ -25,7 +25,7 @@ body {
 /* Firefox */
 html {
   scrollbar-width: thin; /* يمكن استبدالها بـ auto أو none */
-  scrollbar-color: #00FF87 transparent;
+  scrollbar-color: #00ff87 transparent;
 }
 
 .swiper-button-next,
@@ -80,7 +80,6 @@ html {
   box-shadow: inset 5px 16px 36px -5px rgba(0, 0, 0, 0.61);
 }
 
-
 /* عند التمرير: خلفية + ظل خارجي */
 .bg-navbar-dark {
   background-color: rgba(10, 10, 10, 0.95);
@@ -98,22 +97,21 @@ html {
   );
 }
 .hero-content.video-playing .description,
-.hero-content.video-playing .tags{
+.hero-content.video-playing .tags {
   opacity: 0;
   /* display: none; */
-  transform: scale(0.90) translateX(10px);
+  transform: scale(0.9) translateX(10px);
   pointer-events: none;
 }
-.hero-content.video-playing{
+.hero-content.video-playing {
   opacity: 0.75;
   transform: scale(0.85);
 }
 
-.hero-content.video-playing:hover{
+.hero-content.video-playing:hover {
   opacity: 1;
   transform: scale(1) translateX(-50px);
   /* transform: translateX(10px); */
-
 }
 
 .hero-content.video-playing {
@@ -121,7 +119,7 @@ html {
 }
 
 .hero-content:hover .description,
-.hero-content:hover .tags{
+.hero-content:hover .tags {
   /* display: block; */
   opacity: 1;
   transform: scale(1);
@@ -265,8 +263,8 @@ html {
 }
 
 /* ********** Slider ********** */
-.mySwiper-horizontal{
-    height: 125px;
+.mySwiper-horizontal {
+  height: 125px;
 }
 .swiper-wrapper,
 .swiper-slide {
@@ -300,7 +298,7 @@ html {
 .movie-slider-card:hover .movie-slider-details {
   display: flex;
 }
-.movie-slider-details{
+.movie-slider-details {
   border-radius: 0 00px 10px 10px;
 }
 .movie-slider-details .movie-slider-line {
@@ -325,7 +323,6 @@ html {
     transform: translateY(0);
   }
 }
-
 
 /* vertical slider */
 .movie-vertical-card {
@@ -365,10 +362,15 @@ html {
   gap: 0.25rem;
 }
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 
 .hero-slide {
   transition: opacity 0.5s ease-in-out;
@@ -382,7 +384,6 @@ html {
   --plyr-color-main: #e50914; /* match fire-red */
   border-radius: 0.5rem;
 }
-
 
 /* slide in animation */
 
@@ -398,4 +399,9 @@ html {
 }
 .animate-slide-in {
   animation: slide-in 0.5s ease-out forwards;
+}
+/* تعديل المسافة من الأعلى */
+.toast-top-left {
+  top: 72px !important; /* أو أي قيمة بدك إياها */
+  left: 12px;
 }

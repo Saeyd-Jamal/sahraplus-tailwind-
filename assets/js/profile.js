@@ -82,6 +82,15 @@ function saveProfile() {
   toastr.success("تم الحفظ بنجاح", "نجاح!");
 }
 
+function deleteProfile() {
+  const index = $("#editModal").data("index");
+  profiles.splice(index, 1);
+  closeModal("editModal");
+  renderManageList();
+  renderProfiles();
+  toastr.success("تم الحذف بنجاح", "نجاح!");
+}
+
 // الأحداث
 $("#openProfileModal").on("click", () => {
   renderProfiles();
