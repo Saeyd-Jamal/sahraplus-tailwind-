@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اكتشف المقاطع القصيرة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <!-- Swiper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .search-bar:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+
+        .series-circle {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .series-circle:nth-child(2n) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .series-circle:nth-child(3n) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .series-circle:nth-child(4n) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .hashtag-btn {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            border: 1px solid #4a5568;
+        }
+
+        .hashtag-btn:hover,
+        .hashtag-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .video-item {
+            transition: all 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 16px;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-white bg-gray-900">
+
+    <!-- Header ثابت -->
+    <header class="sticky top-0 z-50 bg-gray-800 border-b border-gray-700 shadow-lg">
+        <div class="container px-4 py-4 mx-auto">
+            <div class="flex justify-between items-center mb-4">
+                <!-- السهم والعنوان -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button class="text-white transition-colors duration-300 hover:text-blue-400">
+                        <i class="text-xl fas fa-arrow-right"></i>
+                    </button>
+                    <h1 class="text-xl font-bold">اكتشف المقاطع القصيرة</h1>
+                </div>
+            </div>
+
+            <!-- حقل البحث -->
+            <div class="relative">
+                <input type="text" placeholder="ابحث عن المقاطع القصيرة..."
+                    class="px-6 py-3 pr-12 w-full placeholder-gray-400 text-white bg-gray-700 rounded-full transition-all duration-300 search-bar focus:outline-none focus:bg-gray-600">
+                <button
+                    class="absolute right-4 top-1/2 text-gray-400 transition-colors duration-300 transform -translate-y-1/2 hover:text-white">
+                    <i class="text-lg fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم أفضل المسلسلات - دائري -->
+    <section class="container px-4 py-8 mx-auto">
+        <h2 class="mb-6 text-2xl font-bold text-center section-title">أفضل المسلسلات</h2>
+
+        <div class="flex overflow-x-auto justify-center pb-4 space-x-8 space-x-reverse">
+            <div class="flex-shrink-0 text-center cursor-pointer group">
+                <div
+                    class="flex justify-center items-center mb-3 w-24 h-24 rounded-full shadow-lg transition-all duration-300 transform series-circle group-hover:scale-110">
+                    <span class="text-sm font-bold text-white">أمي</span>
+                </div>
+                <p class="text-sm font-medium text-gray-300">مسلسل أمي</p>
+            </div>
+
+            <div class="flex-shrink-0 text-center cursor-pointer group">
+                <div
+                    class="flex justify-center items-center mb-3 w-24 h-24 rounded-full shadow-lg transition-all duration-300 transform series-circle group-hover:scale-110">
+                    <span class="text-sm font-bold text-white">حلم أشرف</span>
+                </div>
+                <p class="text-sm font-medium text-gray-300">حلم أشرف</p>
+            </div>
+
+            <div class="flex-shrink-0 text-center cursor-pointer group">
+                <div
+                    class="flex justify-center items-center mb-3 w-24 h-24 rounded-full shadow-lg transition-all duration-300 transform series-circle group-hover:scale-110">
+                    <span class="text-sm font-bold text-white">حمود وأيوه</span>
+                </div>
+                <p class="text-sm font-medium text-gray-300">حمود وأيوه</p>
+            </div>
+
+            <div class="flex-shrink-0 text-center cursor-pointer group">
+                <div
+                    class="flex justify-center items-center mb-3 w-24 h-24 rounded-full shadow-lg transition-all duration-300 transform series-circle group-hover:scale-110">
+                    <span class="text-sm font-bold text-white">الملكة</span>
+                </div>
+                <p class="text-sm font-medium text-gray-300">مسلسل الملكة</p>
+            </div>
+
+            <div class="flex-shrink-0 text-center cursor-pointer group">
+                <div
+                    class="flex justify-center items-center mb-3 w-24 h-24 rounded-full shadow-lg transition-all duration-300 transform series-circle group-hover:scale-110">
+                    <span class="text-sm font-bold text-white">ورد</span>
+                </div>
+                <p class="text-sm font-medium text-gray-300">مسلسل ورد</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الهاشتاغات -->
+    <section class="container px-4 py-6 mx-auto">
+        <h3 class="mb-4 text-xl font-bold section-title">الهاشتاغات الرائجة</h3>
+
+        <div class="flex overflow-x-auto pb-2 space-x-3 space-x-reverse">
+            <button
+                class="flex-shrink-0 px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 hashtag-btn"
+                data-hashtag="حمود_وأيوه">
+                #حمود_وأيوه
+            </button>
+            <button
+                class="flex-shrink-0 px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 hashtag-btn"
+                data-hashtag="الأهلي_السعودي">
+                #الأهلي_السعودي
+            </button>
+            <button
+                class="flex-shrink-0 px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 hashtag-btn"
+                data-hashtag="حلم_أشرف">
+                #حلم_أشرف
+            </button>
+            <button
+                class="flex-shrink-0 px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 hashtag-btn"
+                data-hashtag="مسلسل_أمي">
+                #مسلسل_أمي
+            </button>
+            <button
+                class="flex-shrink-0 px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 hashtag-btn"
+                data-hashtag="كوميديا_خليجية">
+                #كوميديا_خليجية
+            </button>
+            <button
+                class="flex-shrink-0 px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 hashtag-btn"
+                data-hashtag="دراما_عربية">
+                #دراما_عربية
+            </button>
+        </div>
+
+        <!-- قسم الفيديوهات الخاص بالهاشتاغ المحدد -->
+        <div id="hashtag-videos-section" class="hidden mt-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="hashtag-section-title" class="text-xl font-bold section-title"></h3>
+                <button id="close-hashtag-section"
+                    class="text-gray-400 transition-colors duration-300 hover:text-white">
+                    <i class="text-lg fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="swiper hashtag-swiper">
+                <div class="swiper-wrapper" id="hashtag-videos-container">
+                    <!-- سيتم إدراج الفيديوهات هنا ديناميكياً -->
+                </div>
+
+                <!-- Navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الفيديوهات القصيرة الأكثر مشاهدة -->
+    <section class="container px-4 py-8 mx-auto">
+        <h2 class="mb-6 text-2xl font-bold section-title">الأكثر مشاهدة هذا الأسبوع</h2>
+
+        <div class="swiper trending-swiper">
+            <div class="swiper-wrapper">
+                <!-- Video 1 -->
+                <a href="./shorts.html" class="swiper-slide">
+                    <div class="overflow-hidden bg-gray-800 rounded-xl shadow-lg cursor-pointer video-item">
+                        <div class="relative">
+                            <img src="https://placehold.co/300x400/667eea/ffffff?text=مسلسل+أمي" alt="مسلسل أمي"
+                                class="object-cover w-full h-64">
+                            <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/60"></div>
+                            <div
+                                class="flex absolute right-4 bottom-4 items-center space-x-2 space-x-reverse text-white">
+                                <span class="text-sm font-bold">3.9K</span>
+                                <i class="text-sm fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-1 text-sm font-semibold text-white">مشهد مؤثر من مسلسل أمي</h4>
+                            <p class="text-xs text-gray-400">أمي • منذ يومين</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Video 2 -->
+                <a href="./shorts.html" class="swiper-slide">
+                    <div class="overflow-hidden bg-gray-800 rounded-xl shadow-lg cursor-pointer video-item">
+                        <div class="relative">
+                            <img src="https://placehold.co/300x400/f093fb/ffffff?text=حلم+أشرف" alt="حلم أشرف"
+                                class="object-cover w-full h-64">
+                            <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/60"></div>
+                            <div
+                                class="flex absolute right-4 bottom-4 items-center space-x-2 space-x-reverse text-white">
+                                <span class="text-sm font-bold">15.2K</span>
+                                <i class="text-sm fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-1 text-sm font-semibold text-white">أجمل لحظات حلم أشرف</h4>
+                            <p class="text-xs text-gray-400">حلم أشرف • منذ 3 أيام</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Video 3 -->
+                <a href="./shorts.html" class="swiper-slide">
+                    <div class="overflow-hidden bg-gray-800 rounded-xl shadow-lg cursor-pointer video-item">
+                        <div class="relative">
+                            <img src="https://placehold.co/300x400/4facfe/ffffff?text=حمود+وأيوه" alt="حمود وأيوه"
+                                class="object-cover w-full h-64">
+                            <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/60"></div>
+                            <div
+                                class="flex absolute right-4 bottom-4 items-center space-x-2 space-x-reverse text-white">
+                                <span class="text-sm font-bold">8.7K</span>
+                                <i class="text-sm fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-1 text-sm font-semibold text-white">مواقف كوميدية من حمود وأيوه</h4>
+                            <p class="text-xs text-gray-400">حمود وأيوه • منذ يوم</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Video 4 -->
+                <a href="./shorts.html" class="swiper-slide">
+                    <div class="overflow-hidden bg-gray-800 rounded-xl shadow-lg cursor-pointer video-item">
+                        <div class="relative">
+                            <img src="https://placehold.co/300x400/43e97b/ffffff?text=الملكة" alt="الملكة"
+                                class="object-cover w-full h-64">
+                            <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/60"></div>
+                            <div
+                                class="flex absolute right-4 bottom-4 items-center space-x-2 space-x-reverse text-white">
+                                <span class="text-sm font-bold">22.1K</span>
+                                <i class="text-sm fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-1 text-sm font-semibold text-white">أقوى مشاهد الملكة</h4>
+                            <p class="text-xs text-gray-400">الملكة • منذ أسبوع</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Video 5 -->
+                <a href="./shorts.html" class="swiper-slide">
+                    <div class="overflow-hidden bg-gray-800 rounded-xl shadow-lg cursor-pointer video-item">
+                        <div class="relative">
+                            <img src="https://placehold.co/300x400/764ba2/ffffff?text=ورد" alt="ورد"
+                                class="object-cover w-full h-64">
+                            <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/60"></div>
+                            <div
+                                class="flex absolute right-4 bottom-4 items-center space-x-2 space-x-reverse text-white">
+                                <span class="text-sm font-bold">6.3K</span>
+                                <i class="text-sm fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-1 text-sm font-semibold text-white">أروع لحظات مسلسل ورد</h4>
+                            <p class="text-xs text-gray-400">ورد • منذ 4 أيام</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- قسم فيديوهات إضافية -->
+    <section class="container px-4 py-8 mx-auto">
+        <h2 class="mb-6 text-2xl font-bold section-title">قبل الحلقة الأخيرة</h2>
+
+        <div class="swiper last-episode-swiper">
+            <div class="swiper-wrapper">
+                <!-- Video 1 -->
+                <a href="./shorts.html" class="swiper-slide">
+                    <div class="overflow-hidden bg-gray-800 rounded-xl shadow-lg cursor-pointer video-item">
+                        <div class="relative">
+                            <img src="https://placehold.co/300x400/ff6b6b/ffffff?text=النهاية+المؤثرة"
+                                alt="النهاية المؤثرة" class="object-cover w-full h-64">
+                            <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/60"></div>
+                            <div
+                                class="flex absolute right-4 bottom-4 items-center space-x-2 space-x-reverse text-white">
+                                <span class="text-sm font-bold">45.8K</span>
+                                <i class="text-sm fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-1 text-sm font-semibold text-white">النهاية المؤثرة للمسلسل</h4>
+                            <p class="text-xs text-gray-400">دراما • منذ ساعتين</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Video 2 -->
+                <a href="./shorts.html" class="swiper-slide">
+                    <div class="overflow-hidden bg-gray-800 rounded-xl shadow-lg cursor-pointer video-item">
+                        <div class="relative">
+                            <img src="https://placehold.co/300x400/4ecdc4/ffffff?text=لحظة+الوداع" alt="لحظة الوداع"
+                                class="object-cover w-full h-64">
+                            <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/60"></div>
+                            <div
+                                class="flex absolute right-4 bottom-4 items-center space-x-2 space-x-reverse text-white">
+                                <span class="text-sm font-bold">32.4K</span>
+                                <i class="text-sm fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-1 text-sm font-semibold text-white">لحظة الوداع الأخيرة</h4>
+                            <p class="text-xs text-gray-400">رومانسية • منذ 5 ساعات</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Video 3 -->
+                <a href="./shorts.html" class="swiper-slide">
+                    <div class="overflow-hidden bg-gray-800 rounded-xl shadow-lg cursor-pointer video-item">
+                        <div class="relative">
+                            <img src="https://placehold.co/300x400/ffe66d/333333?text=المفاجأة+الكبرى"
+                                alt="المفاجأة الكبرى" class="object-cover w-full h-64">
+                            <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/60"></div>
+                            <div
+                                class="flex absolute right-4 bottom-4 items-center space-x-2 space-x-reverse text-white">
+                                <span class="text-sm font-bold">78.9K</span>
+                                <i class="text-sm fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-1 text-sm font-semibold text-white">المفاجأة الكبرى</h4>
+                            <p class="text-xs text-gray-400">إثارة • منذ يوم</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- زر المزيد -->
+    <section class="container px-4 py-8 mx-auto text-center">
+        <button
+            class="px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full shadow-lg transition-all duration-300 transform hover:from-blue-700 hover:to-purple-700 hover:scale-105">
+            المزيد من المحتوى الأكثر مشاهدة
+        </button>
+    </section>
+
+    <script>
+        $(document).ready(function () {
+            // متغير للاحتفاظ بـ Swiper الخاص بالهاشتاغ
+            let hashtagSwiper = null;
+
+            // بيانات الفيديوهات لكل هاشتاغ
+            const hashtagVideos = {
+                'حمود_وأيوه': [
+                    {
+                        title: 'أجمل مواقف حمود وأيوه الكوميدية',
+                        views: '125K',
+                        time: 'منذ يومين',
+                        color: '4facfe',
+                        description: 'كوميديا'
+                    },
+                    {
+                        title: 'حمود وأيوه في المطبخ',
+                        views: '89K',
+                        time: 'منذ 3 أيام',
+                        color: '667eea',
+                        description: 'طبخ كوميدي'
+                    },
+                    {
+                        title: 'مغامرات حمود وأيوه الجديدة',
+                        views: '67K',
+                        time: 'منذ أسبوع',
+                        color: 'f093fb',
+                        description: 'مغامرات'
+                    },
+                    {
+                        title: 'حمود وأيوه والضيوف',
+                        views: '43K',
+                        time: 'منذ أسبوعين',
+                        color: '43e97b',
+                        description: 'استضافة'
+                    }
+                ],
+                'الأهلي_السعودي': [
+                    {
+                        title: 'أهداف الأهلي الرائعة هذا الموسم',
+                        views: '234K',
+                        time: 'منذ ساعة',
+                        color: 'ff6b6b',
+                        description: 'كرة القدم'
+                    },
+                    {
+                        title: 'لحظات مميزة من مباراة الأهلي',
+                        views: '156K',
+                        time: 'منذ يوم',
+                        color: '4ecdc4',
+                        description: 'رياضة'
+                    },
+                    {
+                        title: 'احتفالات جماهير الأهلي',
+                        views: '98K',
+                        time: 'منذ يومين',
+                        color: 'ffe66d',
+                        description: 'جماهير'
+                    }
+                ],
+                'حلم_أشرف': [
+                    {
+                        title: 'أقوى مشاهد حلم أشرف المؤثرة',
+                        views: '189K',
+                        time: 'منذ 3 ساعات',
+                        color: '764ba2',
+                        description: 'دراما'
+                    },
+                    {
+                        title: 'نهاية مفاجئة في حلم أشرف',
+                        views: '145K',
+                        time: 'منذ يوم',
+                        color: '667eea',
+                        description: 'إثارة'
+                    },
+                    {
+                        title: 'أشرف والقرار الصعب',
+                        views: '112K',
+                        time: 'منذ يومين',
+                        color: 'f093fb',
+                        description: 'دراما'
+                    }
+                ],
+                'مسلسل_أمي': [
+                    {
+                        title: 'أكثر المشاهد تأثيراً في مسلسل أمي',
+                        views: '278K',
+                        time: 'منذ ساعتين',
+                        color: '43e97b',
+                        description: 'دراما اجتماعية'
+                    },
+                    {
+                        title: 'قصة الأم والابن المؤثرة',
+                        views: '201K',
+                        time: 'منذ 4 ساعات',
+                        color: '4facfe',
+                        description: 'عائلية'
+                    },
+                    {
+                        title: 'لحظة اللقاء العاطفية',
+                        views: '156K',
+                        time: 'منذ يوم',
+                        color: 'ff6b6b',
+                        description: 'عاطفية'
+                    }
+                ],
+                'كوميديا_خليجية': [
+                    {
+                        title: 'أطرف المواقف الخليجية',
+                        views: '167K',
+                        time: 'منذ 5 ساعات',
+                        color: 'ffe66d',
+                        description: 'كوميديا'
+                    },
+                    {
+                        title: 'نكت خليجية مضحكة',
+                        views: '134K',
+                        time: 'منذ يوم',
+                        color: '4ecdc4',
+                        description: 'فكاهة'
+                    },
+                    {
+                        title: 'شخصيات كوميدية خليجية',
+                        views: '89K',
+                        time: 'منذ يومين',
+                        color: 'f093fb',
+                        description: 'شخصيات'
+                    }
+                ],
+                'دراما_عربية': [
+                    {
+                        title: 'أقوى مشاهد الدراما العربية',
+                        views: '312K',
+                        time: 'منذ ساعة',
+                        color: '764ba2',
+                        description: 'دراما'
+                    },
+                    {
+                        title: 'نجوم الدراما العربية الجدد',
+                        views: '245K',
+                        time: 'منذ 3 ساعات',
+                        color: '667eea',
+                        description: 'نجوم'
+                    },
+                    {
+                        title: 'أجمل القصص الدرامية',
+                        views: '198K',
+                        time: 'منذ يوم',
+                        color: '43e97b',
+                        description: 'قصص'
+                    }
+                ]
+            };
+
+            // تهيئة Swiper للفيديوهات الرائجة
+            const trendingSwiper = new Swiper('.trending-swiper', {
+                slidesPerView: 1.2,
+                spaceBetween: 16,
+                centeredSlides: false,
+                navigation: {
+                    nextEl: '.trending-swiper .swiper-button-next',
+                    prevEl: '.trending-swiper .swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 3.2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 4.2,
+                        spaceBetween: 24,
+                    },
+                    1024: {
+                        slidesPerView: 6.2,
+                        spaceBetween: 28,
+                    },
+                },
+            });
+
+            // تهيئة Swiper للحلقة الأخيرة
+            const lastEpisodeSwiper = new Swiper('.last-episode-swiper', {
+                slidesPerView: 1.2,
+                spaceBetween: 16,
+                centeredSlides: false,
+                navigation: {
+                    nextEl: '.last-episode-swiper .swiper-button-next',
+                    prevEl: '.last-episode-swiper .swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 3.2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 4.2,
+                        spaceBetween: 24,
+                    },
+                    1024: {
+                        slidesPerView: 6.2,
+                        spaceBetween: 28,
+                    },
+                },
+            });
+
+            // وظيفة إنشاء Swiper للهاشتاغ
+            function initHashtagSwiper() {
+                if (hashtagSwiper) {
+                    hashtagSwiper.destroy(true, true);
+                }
+
+                hashtagSwiper = new Swiper('.hashtag-swiper', {
+                    slidesPerView: 1.2,
+                    spaceBetween: 16,
+                    centeredSlides: false,
+                    navigation: {
+                        nextEl: '.hashtag-swiper .swiper-button-next',
+                        prevEl: '.hashtag-swiper .swiper-button-prev',
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 3.2,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 4.2,
+                            spaceBetween: 24,
+                        },
+                        1024: {
+                            slidesPerView: 6.2,
+                            spaceBetween: 28,
+                        },
+                    },
+                });
+            }
+
+            // وظيفة عرض فيديوهات الهاشتاغ
+            function showHashtagVideos(hashtag) {
+                const videos = hashtagVideos[hashtag];
+                if (!videos) return;
+
+                // تحديث عنوان القسم
+                $('#hashtag-section-title').text(`فيديوهات #${hashtag.replace('_', ' ')}`);
+
+                // إنشاء HTML للفيديوهات
+                const videosHTML = videos.map(video => `
+                    <div class="swiper-slide">
+                        <div class="overflow-hidden bg-gray-800 rounded-xl shadow-lg cursor-pointer video-item">
+                            <div class="relative">
+                                <img src="https://placehold.co/300x400/${video.color}/ffffff?text=${encodeURIComponent(video.title)}" 
+                                     alt="${video.title}" class="object-cover w-full h-64 transition-transform duration-300">
+                                <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/60"></div>
+                                <div class="flex absolute right-4 bottom-4 items-center space-x-2 space-x-reverse text-white">
+                                    <span class="text-sm font-bold">${video.views}</span>
+                                    <i class="text-sm fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="mb-1 text-sm font-semibold text-white">${video.title}</h4>
+                                <p class="text-xs text-gray-400">${video.description} • ${video.time}</p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // إدراج الفيديوهات في الحاوية
+                $('#hashtag-videos-container').html(videosHTML);
+
+                // إظهار القسم مع تأثير انتقالي
+                $('#hashtag-videos-section').removeClass('hidden').hide().slideDown(400);
+
+                // تهيئة Swiper بعد إضافة المحتوى
+                setTimeout(initHashtagSwiper, 100);
+
+                // إضافة وظيفة النقر للفيديوهات الجديدة
+                $('#hashtag-videos-section .video-item').click(function () {
+                    const videoTitle = $(this).find('h4').text();
+                    console.log('تم النقر على فيديو الهاشتاغ:', videoTitle);
+
+                    $(this).addClass('animate-pulse');
+                    setTimeout(() => {
+                        $(this).removeClass('animate-pulse');
+                    }, 300);
+                });
+
+                // تمرير الصفحة إلى قسم الفيديوهات
+                $('html, body').animate({
+                    scrollTop: $('#hashtag-videos-section').offset().top - 100
+                }, 600);
+            }
+
+            // وظيفة البحث
+            $('.search-bar').on('keypress', function (e) {
+                if (e.which === 13) {
+                    const searchTerm = $(this).val().trim();
+                    if (searchTerm) {
+                        console.log('البحث عن:', searchTerm);
+                        // هنا يمكن إضافة وظيفة البحث الفعلية
+                        $(this).blur();
+                    }
+                }
+            });
+
+            // النقر على أيقونة البحث
+            $('.fa-search').parent().click(function () {
+                const searchTerm = $('.search-bar').val().trim();
+                if (searchTerm) {
+                    console.log('البحث عن:', searchTerm);
+                    // هنا يمكن إضافة وظيفة البحث الفعلية
+                }
+            });
+
+            // النقر على المسلسلات الدائرية
+            $('.series-circle').parent().click(function () {
+                const seriesName = $(this).find('span').text();
+                console.log('تم اختيار المسلسل:', seriesName);
+
+                // تأثير بصري عند النقر
+                $(this).find('.series-circle').addClass('animate-pulse');
+                setTimeout(() => {
+                    $(this).find('.series-circle').removeClass('animate-pulse');
+                }, 500);
+            });
+
+            // النقر على الهاشتاغات - الوظيفة المحدثة
+            $('.hashtag-btn').click(function () {
+                // إزالة الحالة النشطة من جميع الأزرار
+                $('.hashtag-btn').removeClass('active');
+                // إضافة الحالة النشطة للزر المنقور
+                $(this).addClass('active');
+
+                const hashtag = $(this).data('hashtag');
+                console.log('تم النقر على الهاشتاغ:', hashtag);
+
+                // عرض فيديوهات الهاشتاغ
+                showHashtagVideos(hashtag);
+            });
+
+            // زر إغلاق قسم الهاشتاغ
+            $('#close-hashtag-section').click(function () {
+                $('#hashtag-videos-section').slideUp(400, function () {
+                    $(this).addClass('hidden');
+                    $('.hashtag-btn').removeClass('active');
+                    if (hashtagSwiper) {
+                        hashtagSwiper.destroy(true, true);
+                        hashtagSwiper = null;
+                    }
+                });
+            });
+
+            // النقر على الفيديوهات الأساسية
+            $('.video-item').click(function () {
+                const videoTitle = $(this).find('h4').text();
+                console.log('تم النقر على الفيديو:', videoTitle);
+
+                // تأثير بصري عند النقر
+                $(this).addClass('animate-pulse');
+                setTimeout(() => {
+                    $(this).removeClass('animate-pulse');
+                }, 300);
+
+                // هنا يمكن إضافة وظيفة تشغيل الفيديو
+            });
+
+            // زر المزيد
+            $('button:contains("المزيد من المحتوى")').click(function () {
+                console.log('تم النقر على زر المزيد');
+                $(this).addClass('animate-bounce');
+                setTimeout(() => {
+                    $(this).removeClass('animate-bounce');
+                }, 1000);
+            });
+
+            // تأثيرات إضافية للتفاعل
+            $(document).on('mouseenter', '.video-item', function () {
+                $(this).find('img').addClass('scale-105');
+            });
+
+            $(document).on('mouseleave', '.video-item', function () {
+                $(this).find('img').removeClass('scale-105');
+            });
+        });
+    </script>
+</body>
+
+</html>
