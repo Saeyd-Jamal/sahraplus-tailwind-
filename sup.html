@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطط الاشتراك - منصة البث</title>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/tailwind.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/sup.css">
+</head>
+
+<body class="min-h-screen text-white gradient-bg font-arabic">
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button id="langToggle"
+            class="px-4 py-2 text-sm rounded-lg transition-all duration-300 bg-slate-800 hover:bg-slate-700">
+            <i class="mr-2 fas fa-language"></i>
+            <span class="lang-text">English</span>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container px-4 py-16 mx-auto">
+
+        <!-- Header Section -->
+        <div class="mb-16 text-center slide-in">
+            <h1
+                class="mb-6 text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400 md:text-6xl">
+                <span class="main-title">خطط الاشتراك المناسبة لك</span>
+            </h1>
+            <p class="mx-auto max-w-3xl text-xl leading-relaxed text-gray-300">
+                <span class="main-subtitle">اختر الباقة التي تناسب احتياجاتك واستمتع بأفضل تجربة مشاهدة مع مكتبة ضخمة من
+                    الأفلام والمسلسلات والبرامج الحصرية</span>
+            </p>
+        </div>
+
+        <!-- Subscription Cards -->
+        <div class="grid grid-cols-1 gap-8 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-4">
+
+            <!-- Basic Plan -->
+            <div class="relative p-8 rounded-2xl border subscription-card bg-slate-800/50 border-slate-700 slide-in"
+                style="animation-delay: 0.1s">
+                <div class="mb-8 text-center">
+                    <h3 class="mb-2 text-2xl font-bold plan-name">الباقة الأساسية</h3>
+                    <div class="mb-2 text-4xl font-bold text-pink-500">
+                        <span class="price">$5</span><span class="period">/أسبوع</span>
+                    </div>
+                    <p class="text-gray-400 plan-desc">مثالية للمشاهدة العادية</p>
+                </div>
+
+                <div class="mb-8 space-y-4">
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">جودة التحميل</span>
+                        <span class="text-green-400 tooltip" data-tooltip="دقة عالية للهواتف الذكية">
+                            480p ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الأجهزة المدعومة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="متاح على الهاتف فقط">
+                            📱 الهاتف ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الملفات الشخصية</span>
+                        <span class="text-blue-400">1 ملف</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">البث على الشاشة</span>
+                        <span class="text-red-400 tooltip" data-tooltip="غير مدعوم في هذه الباقة">❌</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الإعلانات</span>
+                        <span class="text-yellow-400">نعم</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الأجهزة المتزامنة</span>
+                        <span class="text-blue-400">1 جهاز</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">المباريات المباشرة</span>
+                        <span class="text-red-400 tooltip" data-tooltip="غير متاح في الباقة الأساسية">❌</span>
+                    </div>
+                </div>
+
+                <button class="py-4 w-full text-lg font-semibold rounded-xl btn-primary subscribe-btn"
+                    data-plan="basic">
+                    <i class="mr-2 fas fa-play"></i>
+                    <span class="btn-text">اشترك الآن</span>
+                </button>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="relative p-8 rounded-2xl border subscription-card bg-slate-800/50 border-slate-700 slide-in"
+                style="animation-delay: 0.2s">
+                <div class="mb-8 text-center">
+                    <h3 class="mb-2 text-2xl font-bold plan-name">الباقة المتميزة</h3>
+                    <div class="mb-2 text-4xl font-bold text-pink-500">
+                        <span class="price">$12</span><span class="period">/أسبوع</span>
+                    </div>
+                    <p class="text-gray-400 plan-desc">الأفضل للأسرة الصغيرة</p>
+                </div>
+
+                <div class="mb-8 space-y-4">
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">جودة التحميل</span>
+                        <span class="text-green-400 tooltip" data-tooltip="دقة عالية HD">
+                            720p ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الأجهزة المدعومة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="الهاتف واللابتوب">
+                            📱💻 متعددة ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الملفات الشخصية</span>
+                        <span class="text-blue-400">3 ملفات</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">البث على الشاشة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="مدعوم على التلفاز">
+                            📺 مدعوم ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الإعلانات</span>
+                        <span class="text-green-400">لا</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الأجهزة المتزامنة</span>
+                        <span class="text-blue-400">2 جهاز</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">المباريات المباشرة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="مباريات مختارة">
+                            ⚽ محدودة ✅
+                        </span>
+                    </div>
+                </div>
+
+                <button class="py-4 w-full text-lg font-semibold rounded-xl btn-primary subscribe-btn"
+                    data-plan="premium">
+                    <i class="mr-2 fas fa-star"></i>
+                    <span class="btn-text">اشترك الآن</span>
+                </button>
+            </div>
+
+            <!-- VIP Plan (Popular) -->
+            <div class="relative p-8 bg-gradient-to-br rounded-2xl subscription-card popular-card from-pink-500/10 to-rose-500/10 slide-in"
+                style="animation-delay: 0.3s">
+                <div
+                    class="absolute -top-4 left-1/2 px-6 py-2 text-sm font-bold text-white bg-gradient-to-r from-pink-500 to-rose-500 rounded-full transform -translate-x-1/2 popular-badge">
+                    <span class="popular-text">الأكثر شعبية</span>
+                </div>
+
+                <div class="mt-4 mb-8 text-center">
+                    <h3 class="mb-2 text-2xl font-bold plan-name">باقة VIP</h3>
+                    <div class="mb-2 text-4xl font-bold text-pink-500">
+                        <span class="price">$20</span><span class="period">/أسبوع</span>
+                    </div>
+                    <p class="text-gray-400 plan-desc">للعائلة الكبيرة والمشاهدة المكثفة</p>
+                </div>
+
+                <div class="mb-8 space-y-4">
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">جودة التحميل</span>
+                        <span class="text-green-400 tooltip" data-tooltip="دقة فائقة Full HD">
+                            1080p ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الأجهزة المدعومة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="جميع الأجهزة">
+                            📱💻📺 جميعها ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الملفات الشخصية</span>
+                        <span class="text-blue-400">5 ملفات</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">البث على الشاشة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="مدعوم بجودة عالية">
+                            📺 مدعوم ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الإعلانات</span>
+                        <span class="text-green-400">لا</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الأجهزة المتزامنة</span>
+                        <span class="text-blue-400">4 أجهزة</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">المباريات المباشرة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="جميع المباريات مباشرة">
+                            ⚽ كاملة ✅
+                        </span>
+                    </div>
+                </div>
+
+                <button class="py-4 w-full text-lg font-semibold rounded-xl btn-primary subscribe-btn" data-plan="vip">
+                    <i class="mr-2 fas fa-crown"></i>
+                    <span class="btn-text">اشترك الآن</span>
+                </button>
+            </div>
+
+            <!-- Ultimate Plan -->
+            <div class="relative p-8 rounded-2xl border subscription-card bg-slate-800/50 border-slate-700 slide-in"
+                style="animation-delay: 0.4s">
+                <div class="mb-8 text-center">
+                    <h3 class="mb-2 text-2xl font-bold plan-name">الباقة المطلقة</h3>
+                    <div class="mb-2 text-4xl font-bold text-pink-500">
+                        <span class="price">$35</span><span class="period">/أسبوع</span>
+                    </div>
+                    <p class="text-gray-400 plan-desc">التجربة الأقصى للمحترفين</p>
+                </div>
+
+                <div class="mb-8 space-y-4">
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">جودة التحميل</span>
+                        <span class="text-green-400 tooltip" data-tooltip="دقة فائقة 4K و 8K">
+                            4K/8K ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الأجهزة المدعومة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="جميع الأجهزة + VR">
+                            🌐 جميعها + VR ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الملفات الشخصية</span>
+                        <span class="text-blue-400">غير محدود</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">البث على الشاشة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="مدعوم بجودة 4K">
+                            📺 4K مدعوم ✅
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الإعلانات</span>
+                        <span class="text-green-400">لا</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">الأجهزة المتزامنة</span>
+                        <span class="text-blue-400">غير محدود</span>
+                    </div>
+                    <div class="flex justify-between items-center feature-item">
+                        <span class="feature-text">المباريات المباشرة</span>
+                        <span class="text-green-400 tooltip" data-tooltip="جميع المباريات + VIP Box">
+                            ⚽ VIP Access ✅
+                        </span>
+                    </div>
+                </div>
+
+                <button class="py-4 w-full text-lg font-semibold rounded-xl btn-primary subscribe-btn"
+                    data-plan="ultimate">
+                    <i class="mr-2 fas fa-gem"></i>
+                    <span class="btn-text">اشترك الآن</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-16 text-center slide-in" style="animation-delay: 0.5s">
+            <p class="mb-4 text-gray-400">
+                <span class="additional-info">جميع الباقات تشمل فترة تجريبية مجانية لمدة 7 أيام • إلغاء في أي وقت • دعم
+                    فني على مدار الساعة</span>
+            </p>
+            <div class="flex justify-center space-x-6">
+                <span class="flex items-center text-sm text-gray-500">
+                    <i class="mr-2 fas fa-shield-alt"></i>
+                    <span class="secure-text">آمن ومحمي</span>
+                </span>
+                <span class="flex items-center text-sm text-gray-500">
+                    <i class="mr-2 fas fa-credit-card"></i>
+                    <span class="payment-text">دفع آمن</span>
+                </span>
+                <span class="flex items-center text-sm text-gray-500">
+                    <i class="mr-2 fas fa-headset"></i>
+                    <span class="support-text">دعم 24/7</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscription Modal -->
+    <div id="subscriptionModal" class="hidden fixed inset-0 z-50 justify-center items-center bg-black/50 modal-overlay">
+        <div class="p-8 mx-4 w-full max-w-md rounded-2xl transition-all duration-300 transform scale-95 bg-slate-800">
+            <div class="mb-6 text-center">
+                <div class="flex justify-center items-center mx-auto mb-4 w-16 h-16 bg-pink-500 rounded-full">
+                    <i class="text-2xl text-white fas fa-check"></i>
+                </div>
+                <h3 class="mb-2 text-2xl font-bold modal-title">تأكيد الاشتراك</h3>
+                <p class="text-gray-400 modal-message">أنت على وشك الاشتراك في الباقة</p>
+                <p class="mt-2 text-xl font-bold text-pink-500" id="selectedPlan"></p>
+            </div>
+
+            <div class="space-y-4">
+                <button id="confirmSubscription" class="py-3 w-full font-semibold rounded-xl btn-primary">
+                    <i class="mr-2 fas fa-credit-card"></i>
+                    <span class="confirm-text">تأكيد الاشتراك</span>
+                </button>
+                <button id="cancelSubscription"
+                    class="py-3 w-full font-semibold bg-gray-700 rounded-xl transition-colors hover:bg-gray-600">
+                    <span class="cancel-text">إلغاء</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- يرجى تعبئة الموجودة هين من الداتا بيس -->
+    <script>
+        const paymentUrl = 'payment.html';
+        const translations = {
+            ar: {
+                langText: 'English',
+                mainTitle: 'خطط الاشتراك المناسبة لك',
+                mainSubtitle: 'اختر الباقة التي تناسب احتياجاتك واستمتع بأفضل تجربة مشاهدة مع مكتبة ضخمة من الأفلام والمسلسلات والبرامج الحصرية',
+                plans: [
+                    {
+                        name: 'الباقة الأساسية',
+                        price: '$5',
+                        period: '/أسبوع',
+                        desc: 'مثالية للمشاهدة العادية',
+                        btnText: 'اشترك الآن'
+                    },
+                    {
+                        name: 'الباقة المتميزة',
+                        price: '$12',
+                        period: '/أسبوع',
+                        desc: 'الأفضل للأسرة الصغيرة',
+                        btnText: 'اشترك الآن'
+                    },
+                    {
+                        name: 'باقة VIP',
+                        price: '$20',
+                        period: '/أسبوع',
+                        desc: 'للعائلة الكبيرة والمشاهدة المكثفة',
+                        btnText: 'اشترك الآن'
+                    },
+                    {
+                        name: 'الباقة المطلقة',
+                        price: '$35',
+                        period: '/أسبوع',
+                        desc: 'التجربة الأقصى للمحترفين',
+                        btnText: 'اشترك الآن'
+                    }
+                ],
+                popularText: 'الأكثر شعبية',
+                featureText: 'جودة التحميل',
+                additionalInfo: 'جميع الباقات تشمل فترة تجريبية مجانية لمدة 7 أيام • إلغاء في أي وقت • دعم فني على مدار الساعة',
+                secureText: 'آمن ومحمي',
+                paymentText: 'دفع آمن',
+                supportText: 'دعم 24/7',
+                modalTitle: 'تأكيد الاشتراك',
+                modalMessage: 'أنت على وشك الاشتراك في الباقة',
+                confirmText: 'تأكيد الاشتراك',
+                cancelText: 'إلغاء'
+            },
+            en: {
+                langText: 'العربية',
+                mainTitle: 'Choose Your Perfect Plan',
+                mainSubtitle: 'Select the plan that fits your needs and enjoy the best streaming experience with our huge library of movies, series, and exclusive content',
+                plans: [
+                    {
+                        name: 'Basic Plan',
+                        price: '$5',
+                        period: '/week',
+                        desc: 'Perfect for casual viewing',
+                        btnText: 'Subscribe Now'
+                    },
+                    {
+                        name: 'Premium Plan',
+                        price: '$12',
+                        period: '/week',
+                        desc: 'Best for small families',
+                        btnText: 'Subscribe Now'
+                    },
+                    {
+                        name: 'VIP Plan',
+                        price: '$20',
+                        period: '/week',
+                        desc: 'For large families & heavy streaming',
+                        btnText: 'Subscribe Now'
+                    },
+                    {
+                        name: 'Ultimate Plan',
+                        price: '$35',
+                        period: '/week',
+                        desc: 'Ultimate experience for professionals',
+                        btnText: 'Subscribe Now'
+                    }
+                ],
+                popularText: 'Most Popular',
+                featureText: 'Video Quality',
+                additionalInfo: 'All plans include 7-day free trial • Cancel anytime • 24/7 customer support',
+                secureText: 'Safe & Secure',
+                paymentText: 'Secure Payment',
+                supportText: '24/7 Support',
+                modalTitle: 'Confirm Subscription',
+                modalMessage: 'You are about to subscribe to',
+                confirmText: 'Confirm Subscription',
+                cancelText: 'Cancel'
+            }
+        };
+    </script>
+    <script src="./assets/js/sup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام عملية الدفع - منصة البث</title>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/tailwind.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/payment.css">
+</head>
+
+<body class="min-h-screen text-white gradient-bg font-arabic">
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button id="langToggle"
+            class="px-4 py-2 text-sm rounded-lg transition-all duration-300 bg-slate-800 hover:bg-slate-700">
+            <i class="mr-2 fas fa-language"></i>
+            <span class="lang-text">English</span>
+        </button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 z-40 w-full bg-gray-800">
+        <div class="w-0 progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container px-4 py-16 mx-auto mt-8">
+
+        <!-- Header Section -->
+        <div class="mb-12 text-center slide-in">
+            <h1
+                class="mb-4 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400 md:text-5xl">
+                <span class="main-title">أكمل عملية الدفع بأمان</span>
+            </h1>
+            <p class="mx-auto max-w-2xl text-lg text-gray-300">
+                <span class="main-subtitle">يرجى تعبئة البيانات التالية لإتمام اشتراكك والاستمتاع بأفضل تجربة
+                    مشاهدة</span>
+            </p>
+            <div class="mt-4 security-badge">
+                <i class="mr-2 fas fa-shield-alt"></i>
+                <span class="security-text">محمي بتشفير SSL 256-bit</span>
+            </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <div class="grid grid-cols-1 gap-8 mx-auto max-w-4xl lg:grid-cols-2">
+
+            <!-- Personal Information Section -->
+            <div class="p-8 bg-gray-800 rounded-lg shadow-lg form-section slide-in" style="animation-delay: 0.2s">
+                <div class="flex items-center mb-6">
+                    <div class="flex justify-center items-center mr-4 w-10 h-10 bg-pink-500 rounded-full">
+                        <i class="text-white fas fa-user"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold personal-info-title">البيانات الشخصية</h2>
+                </div>
+
+                <!-- Full Name -->
+                <div class="input-group">
+                    <input type="text" id="fullName"
+                        class="px-4 py-3 pr-12 w-full text-white bg-gray-700 rounded-lg input-field focus:outline-none"
+                        placeholder=" " required>
+                    <i class="input-icon fas fa-user"></i>
+                    <label class="floating-label full-name-label">الاسم الكامل</label>
+                    <div class="error-message" id="fullNameError">يرجى إدخال الاسم الكامل</div>
+                </div>
+
+                <!-- Email -->
+                <div class="input-group">
+                    <input type="email" id="email"
+                        class="px-4 py-3 pr-12 w-full text-white bg-gray-700 rounded-lg input-field focus:outline-none"
+                        placeholder=" " required>
+                    <i class="input-icon fas fa-envelope"></i>
+                    <label class="floating-label email-label">البريد الإلكتروني</label>
+                    <div class="error-message" id="emailError">يرجى إدخال بريد إلكتروني صحيح</div>
+                    <div class="success-message" id="emailSuccess">البريد الإلكتروني صحيح</div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="input-group">
+                    <div class="flex">
+                        <input type="tel" id="phoneNumber"
+                            class="flex-1 px-4 py-3 text-white bg-gray-700 rounded-r-lg input-field focus:outline-none"
+                            placeholder=" " required>
+                        <select id="countryCode"
+                            class="px-3 py-3 text-white bg-gray-700 rounded-l-lg border-r border-gray-600 focus:outline-none">
+                            <option value="+970">🇵🇸 +970</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+44">🇬🇧 +44</option>
+                            <option value="+971">🇦🇪 +971</option>
+                            <option value="+966">🇸🇦 +966</option>
+                            <option value="+20">🇪🇬 +20</option>
+                        </select>
+                    </div>
+                    <label class="floating-label phone-label" style="right: 1rem; top: 50%;">رقم الهاتف</label>
+                    <div class="error-message" id="phoneError">يرجى إدخال رقم هاتف صحيح</div>
+                </div>
+
+                <!-- Subscription Type -->
+                <div class="input-group">
+                    <select id="subscriptionType"
+                        class="px-4 py-3 pr-12 w-full text-white bg-gray-700 rounded-lg input-field focus:outline-none">
+                        <option value="">اختر نوع الاشتراك</option>
+                        <option value="basic">الباقة الأساسية - $5/أسبوع</option>
+                        <option value="premium">الباقة المتميزة - $12/أسبوع</option>
+                        <option value="vip">باقة VIP - $20/أسبوع</option>
+                        <option value="ultimate">الباقة المطلقة - $35/أسبوع</option>
+                    </select>
+                    <i class="input-icon fas fa-crown"></i>
+                    <div class="error-message" id="subscriptionError">يرجى اختيار نوع الاشتراك</div>
+                </div>
+            </div>
+
+            <!-- Payment Information Section -->
+            <div class="p-8 bg-gray-800 rounded-lg shadow-lg form-section slide-in" style="animation-delay: 0.4s">
+                <div class="flex items-center mb-6">
+                    <div class="flex justify-center items-center mr-4 w-10 h-10 bg-pink-500 rounded-full">
+                        <i class="text-white fas fa-credit-card"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold payment-info-title">بيانات الدفع</h2>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="mb-6">
+                    <h3 class="mb-4 text-lg font-semibold payment-method-title">اختر طريقة الدفع</h3>
+
+                    <!-- Credit Card -->
+                    <div class="p-4 mb-3 bg-gray-700 rounded-lg payment-method active" data-method="card">
+                        <div class="flex items-center">
+                            <input type="radio" name="paymentMethod" value="card" id="cardMethod" class="mr-3" checked>
+                            <label for="cardMethod" class="flex flex-1 items-center cursor-pointer">
+                                <i class="mr-4 text-2xl text-pink-500 fas fa-credit-card"></i>
+                                <div>
+                                    <div class="font-semibold card-method-title">بطاقة بنكية</div>
+                                    <div class="text-sm text-gray-400">Visa, MasterCard, American Express</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- PayPal -->
+                    <div class="p-4 mb-3 bg-gray-700 rounded-lg payment-method" data-method="paypal">
+                        <div class="flex items-center">
+                            <input type="radio" name="paymentMethod" value="paypal" id="paypalMethod" class="mr-3">
+                            <label for="paypalMethod" class="flex flex-1 items-center cursor-pointer">
+                                <i class="mr-4 text-2xl text-blue-500 fab fa-paypal"></i>
+                                <div>
+                                    <div class="font-semibold paypal-method-title">PayPal</div>
+                                    <div class="text-sm text-gray-400 paypal-desc">الدفع الآمن عبر PayPal</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Apple Pay -->
+                    <div class="p-4 mb-3 bg-gray-700 rounded-lg payment-method" data-method="applepay">
+                        <div class="flex items-center">
+                            <input type="radio" name="paymentMethod" value="applepay" id="applePayMethod" class="mr-3">
+                            <label for="applePayMethod" class="flex flex-1 items-center cursor-pointer">
+                                <i class="mr-4 text-2xl text-gray-300 fab fa-apple"></i>
+                                <div>
+                                    <div class="font-semibold apple-method-title">Apple Pay</div>
+                                    <div class="text-sm text-gray-400 apple-desc">الدفع السريع والآمن</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Credit Card Form -->
+                <div class="payment-form active" id="cardForm">
+                    <div class="mb-6 card-preview">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-sm text-gray-400">رقم البطاقة</div>
+                            <div class="flex space-x-2">
+                                <i class="text-2xl text-blue-500 fab fa-cc-visa"></i>
+                                <i class="text-2xl text-red-500 fab fa-cc-mastercard"></i>
+                            </div>
+                        </div>
+                        <div class="mb-4 font-mono text-xl tracking-wider" id="cardPreview">•••• •••• •••• ••••</div>
+                        <div class="flex justify-between">
+                            <div>
+                                <div class="text-xs text-gray-400 card-holder-label">اسم صاحب البطاقة</div>
+                                <div class="font-semibold" id="cardHolderPreview">الاسم الكامل</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400 expiry-label">تاريخ الانتهاء</div>
+                                <div class="font-semibold" id="expiryPreview">MM/YY</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Number -->
+                    <div class="input-group">
+                        <input type="text" id="cardNumber"
+                            class="px-4 py-3 pr-12 w-full text-white bg-gray-700 rounded-lg input-field focus:outline-none"
+                            placeholder=" " maxlength="19" required>
+                        <i class="input-icon fas fa-credit-card"></i>
+                        <label class="floating-label card-number-label">رقم البطاقة</label>
+                        <div class="error-message" id="cardNumberError">يرجى إدخال رقم بطاقة صحيح</div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Expiry Date -->
+                        <div class="input-group">
+                            <input type="text" id="expiryDate"
+                                class="px-4 py-3 pr-12 w-full text-white bg-gray-700 rounded-lg input-field focus:outline-none"
+                                placeholder=" " maxlength="5" required>
+                            <i class="input-icon fas fa-calendar"></i>
+                            <label class="floating-label expiry-date-label">MM/YY</label>
+                            <div class="error-message" id="expiryError">تاريخ غير صحيح</div>
+                        </div>
+
+                        <!-- CVV -->
+                        <div class="input-group">
+                            <input type="text" id="cvv"
+                                class="px-4 py-3 pr-12 w-full text-white bg-gray-700 rounded-lg input-field focus:outline-none"
+                                placeholder=" " maxlength="4" required>
+                            <i class="input-icon fas fa-lock tooltip" data-tooltip="الرقم السري خلف البطاقة"></i>
+                            <label class="floating-label cvv-label">CVV</label>
+                            <div class="error-message" id="cvvError">CVV غير صحيح</div>
+                        </div>
+                    </div>
+
+                    <!-- Card Holder Name -->
+                    <div class="input-group">
+                        <input type="text" id="cardHolderName"
+                            class="px-4 py-3 pr-12 w-full text-white bg-gray-700 rounded-lg input-field focus:outline-none"
+                            placeholder=" " required>
+                        <i class="input-icon fas fa-user"></i>
+                        <label class="floating-label card-holder-name-label">اسم صاحب البطاقة</label>
+                        <div class="error-message" id="cardHolderError">يرجى إدخال اسم صاحب البطاقة</div>
+                    </div>
+                </div>
+
+                <!-- PayPal Form -->
+                <div class="payment-form" id="paypalForm">
+                    <div class="py-8 text-center">
+                        <i class="mb-4 text-6xl text-blue-500 fab fa-paypal"></i>
+                        <p class="mb-6 text-lg paypal-connect-text">سيتم توجيهك إلى PayPal لإتمام عملية الدفع بأمان</p>
+                        <button type="button"
+                            class="px-8 py-3 font-semibold text-white bg-blue-500 rounded-lg transition-all duration-300 hover:bg-blue-600">
+                            <i class="mr-2 fab fa-paypal"></i>
+                            <span class="connect-paypal-text">اتصل بحساب PayPal</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Apple Pay Form -->
+                <div class="payment-form" id="applePayForm">
+                    <div class="py-8 text-center">
+                        <i class="mb-4 text-6xl text-gray-300 fab fa-apple"></i>
+                        <p class="mb-6 text-lg apple-pay-text">استخدم Touch ID أو Face ID للدفع بسرعة وأمان</p>
+                        <button type="button"
+                            class="px-8 py-3 font-semibold text-white bg-black rounded-lg border border-gray-600 transition-all duration-300 hover:bg-gray-800">
+                            <i class="mr-2 fab fa-apple"></i>
+                            <span class="pay-with-apple-text">الدفع بـ Apple Pay</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mx-auto mt-8 max-w-4xl slide-in" style="animation-delay: 0.6s">
+            <button type="button" id="submitPayment"
+                class="py-4 w-full text-lg font-bold rounded-xl btn-primary disabled:opacity-50 disabled:cursor-not-allowed">
+                <span class="flex justify-center items-center">
+                    <i class="mr-3 fas fa-shield-alt"></i>
+                    <span class="submit-text">إتمام الدفع الآن</span>
+                    <div class="hidden ml-3 loading-spinner" id="loadingSpinner"></div>
+                </span>
+            </button>
+
+            <div class="mt-4 text-sm text-center text-gray-400">
+                <i class="mr-2 fas fa-lock"></i>
+                <span class="secure-payment-text">دفع آمن ومحمي بتشفير SSL</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="hidden fixed inset-0 z-50 justify-center items-center backdrop-blur-sm bg-black/50">
+        <div class="p-8 mx-4 w-full max-w-md bg-gray-800 rounded-2xl transition-all duration-300 transform scale-95">
+            <div class="text-center">
+                <div class="flex justify-center items-center mx-auto mb-6 w-20 h-20 bg-green-500 rounded-full">
+                    <i class="text-3xl text-white fas fa-check"></i>
+                </div>
+                <h3 class="mb-4 text-2xl font-bold success-title">تم الدفع بنجاح!</h3>
+                <p class="mb-6 text-gray-300 success-message-text">تم إنشاء حسابك بنجاح. ستتلقى رسالة تأكيد على بريدك
+                    الإلكتروني خلال دقائق قليلة.</p>
+                <button id="closeSuccessModal" class="px-8 py-3 font-semibold rounded-lg btn-primary">
+                    <span class="continue-text">متابعة</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- يرجى تعبئة الموجودة هين من الداتا بيس -->
+    <script>
+        // Language Toggle
+        let currentLang = 'ar';
+        const translations = {
+            ar: {
+                langText: 'English',
+                mainTitle: 'أكمل عملية الدفع بأمان',
+                mainSubtitle: 'يرجى تعبئة البيانات التالية لإتمام اشتراكك والاستمتاع بأفضل تجربة مشاهدة',
+                securityText: 'محمي بتشفير SSL 256-bit',
+                personalInfoTitle: 'البيانات الشخصية',
+                paymentInfoTitle: 'بيانات الدفع',
+                paymentMethodTitle: 'اختر طريقة الدفع',
+                fullNameLabel: 'الاسم الكامل',
+                emailLabel: 'البريد الإلكتروني',
+                phoneLabel: 'رقم الهاتف',
+                cardMethodTitle: 'بطاقة بنكية',
+                paypalMethodTitle: 'PayPal',
+                appleMethodTitle: 'Apple Pay',
+                paypalDesc: 'الدفع الآمن عبر PayPal',
+                appleDesc: 'الدفع السريع والآمن',
+                cardNumberLabel: 'رقم البطاقة',
+                expiryDateLabel: 'MM/YY',
+                cvvLabel: 'CVV',
+                cardHolderNameLabel: 'اسم صاحب البطاقة',
+                cardHolderLabel: 'اسم صاحب البطاقة',
+                expiryLabel: 'تاريخ الانتهاء',
+                submitText: 'إتمام الدفع الآن',
+                securePaymentText: 'دفع آمن ومحمي بتشفير SSL',
+                paypalConnectText: 'سيتم توجيهك إلى PayPal لإتمام عملية الدفع بأمان',
+                connectPaypalText: 'اتصل بحساب PayPal',
+                applePayText: 'استخدم Touch ID أو Face ID للدفع بسرعة وأمان',
+                payWithAppleText: 'الدفع بـ Apple Pay',
+                successTitle: 'تم الدفع بنجاح!',
+                successMessageText: 'تم إنشاء حسابك بنجاح. ستتلقى رسالة تأكيد على بريدك الإلكتروني خلال دقائق قليلة.',
+                continueText: 'متابعة'
+            },
+            en: {
+                langText: 'العربية',
+                mainTitle: 'Complete Your Secure Payment',
+                mainSubtitle: 'Please fill in the following details to complete your subscription and enjoy the best streaming experience',
+                securityText: 'Protected with SSL 256-bit encryption',
+                personalInfoTitle: 'Personal Information',
+                paymentInfoTitle: 'Payment Details',
+                paymentMethodTitle: 'Choose Payment Method',
+                fullNameLabel: 'Full Name',
+                emailLabel: 'Email Address',
+                phoneLabel: 'Phone Number',
+                cardMethodTitle: 'Credit Card',
+                paypalMethodTitle: 'PayPal',
+                appleMethodTitle: 'Apple Pay',
+                paypalDesc: 'Secure payment via PayPal',
+                appleDesc: 'Fast and secure payment',
+                cardNumberLabel: 'Card Number',
+                expiryDateLabel: 'MM/YY',
+                cvvLabel: 'CVV',
+                cardHolderNameLabel: 'Cardholder Name',
+                cardHolderLabel: 'Cardholder Name',
+                expiryLabel: 'Expiry Date',
+                submitText: 'Complete Payment Now',
+                securePaymentText: 'Secure payment protected by SSL encryption',
+                paypalConnectText: 'You will be redirected to PayPal to complete your payment securely',
+                connectPaypalText: 'Connect to PayPal Account',
+                applePayText: 'Use Touch ID or Face ID to pay quickly and securely',
+                payWithAppleText: 'Pay with Apple Pay',
+                successTitle: 'Payment Successful!',
+                successMessageText: 'Your account has been created successfully. You will receive a confirmation email within a few minutes.',
+                continueText: 'Continue'
+            }
+        };
+    </script>
+    <script src="./assets/js/payment.js"></script>
+</body>
+
+</html>
