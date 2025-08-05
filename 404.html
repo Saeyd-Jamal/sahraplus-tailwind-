@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - الصفحة غير موجودة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'arabic': ['Cairo', 'sans-serif'],
+                        'english': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slideUp': 'slideUp 1s ease-out',
+                        'fadeIn': 'fadeIn 1.5s ease-out'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        glow: {
+                            '0%': { filter: 'drop-shadow(0 0 20px rgba(14, 165, 233, 0.3))' },
+                            '100%': { filter: 'drop-shadow(0 0 40px rgba(14, 165, 233, 0.6))' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .error-number {
+            text-shadow: 
+                3px 3px 0px rgba(168, 85, 247, 0.4),
+                6px 6px 0px rgba(14, 165, 233, 0.3),
+                9px 9px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#0e1117] via-[#1a1d29] to-[#0e1117] min-h-screen overflow-hidden">
+    <!-- Background decoration -->
+    <div class="overflow-hidden absolute inset-0">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full opacity-20 mix-blend-multiply filter blur-xl animate-float"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-sky-500 rounded-full opacity-20 mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-indigo-500 rounded-full opacity-10 mix-blend-multiply filter blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-float" style="animation-delay: 4s;"></div>
+    </div>
+    
+    <!-- Language Toggle -->
+    <div class="absolute top-6 right-6 z-50">
+        <button id="langToggle" class="px-4 py-2 text-white rounded-full transition-all duration-300 glass-effect hover:bg-white/10 hover-glow">
+            <i class="mr-2 fas fa-language"></i>
+            <span id="langText">English</span>
+        </button>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="flex relative z-10 flex-col justify-center items-center px-6 min-h-screen text-center">
+        <!-- Error Icon -->
+        <div class="animate-fadeIn">
+            <i class="mb-8 text-6xl text-yellow-400 fas fa-exclamation-triangle animate-glow"></i>
+        </div>
+        
+        <!-- 3D Error Number -->
+        <div class="error-number text-[120px] sm:text-[150px] lg:text-[200px] xl:text-[250px] font-extrabold bg-gradient-to-r from-sky-400 via-purple-500 to-pink-500 text-transparent bg-clip-text animate-float leading-none mb-4">
+            404
+        </div>
+        
+        <!-- Error Messages -->
+        <div id="errorMessages" class="animate-slideUp">
+            <!-- Arabic Content -->
+            <div id="arabicContent" class="text-center">
+                <h1 class="mb-4 text-2xl font-bold text-white sm:text-3xl lg:text-4xl font-arabic">
+                    عذرًا، الصفحة غير موجودة
+                </h1>
+                <p class="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-gray-400 sm:text-xl font-arabic">
+                    يبدو أن الصفحة التي تبحث عنها قد تم نقلها أو حذفها أو أنك قمت بكتابة الرابط بشكل خاطئ
+                </p>
+            </div>
+            
+            <!-- English Content (Hidden by default) -->
+            <div id="englishContent" class="hidden text-center">
+                <h1 class="mb-4 text-2xl font-bold text-white sm:text-3xl lg:text-4xl font-english">
+                    Oops! Page Not Found
+                </h1>
+                <p class="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-gray-400 sm:text-xl font-english">
+                    The page you're looking for might have been moved, deleted, or you entered the wrong URL
+                </p>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div id="actionButtons" class="flex flex-col gap-4 sm:flex-row animate-slideUp" style="animation-delay: 0.3s;">
+            <!-- Arabic Buttons -->
+            <div id="arabicButtons" class="flex flex-col gap-4 sm:flex-row">
+                <a href="/" class="px-8 py-4 font-semibold text-white bg-gradient-to-r from-sky-600 to-blue-600 rounded-full transition-all duration-300 transform group hover:from-sky-700 hover:to-blue-700 hover:scale-105 hover-glow font-arabic">
+                    <i class="mr-2 fas fa-home"></i>
+                    العودة للرئيسية
+                </a>
+                <button onclick="history.back()" class="px-8 py-4 font-semibold text-white rounded-full border transition-all duration-300 transform group glass-effect hover:bg-white/10 hover:scale-105 hover-glow font-arabic">
+                    <i class="mr-2 fas fa-arrow-right"></i>
+                    الصفحة السابقة
+                </button>
+            </div>
+            
+            <!-- English Buttons (Hidden by default) -->
+            <div id="englishButtons" class="flex hidden flex-col gap-4 sm:flex-row">
+                <a href="/" class="px-8 py-4 font-semibold text-white bg-gradient-to-r from-sky-600 to-blue-600 rounded-full transition-all duration-300 transform group hover:from-sky-700 hover:to-blue-700 hover:scale-105 hover-glow font-english">
+                    <i class="mr-2 fas fa-home"></i>
+                    Back to Home
+                </a>
+                <button onclick="history.back()" class="px-8 py-4 font-semibold text-white rounded-full border transition-all duration-300 transform group glass-effect hover:bg-white/10 hover:scale-105 hover-glow font-english">
+                    <i class="mr-2 fas fa-arrow-left"></i>
+                    Go Back
+                </button>
+            </div>
+        </div>
+        
+        <!-- Additional Info -->
+        <div class="mt-12 animate-slideUp" style="animation-delay: 0.6s;">
+            <div id="additionalInfo">
+                <!-- Arabic Info -->
+                <div id="arabicInfo" class="text-sm text-gray-500 font-arabic">
+                    <p>رمز الخطأ: 404 | الوقت: <span id="currentTime"></span></p>
+                </div>
+                
+                <!-- English Info (Hidden by default) -->
+                <div id="englishInfo" class="hidden text-sm text-gray-500 font-english">
+                    <p>Error Code: 404 | Time: <span id="currentTimeEn"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Language Toggle Functionality
+        let isArabic = true;
+        const langToggle = document.getElementById('langToggle');
+        const langText = document.getElementById('langText');
+        const html = document.documentElement;
+        
+        // Elements to toggle
+        const arabicContent = document.getElementById('arabicContent');
+        const englishContent = document.getElementById('englishContent');
+        const arabicButtons = document.getElementById('arabicButtons');
+        const englishButtons = document.getElementById('englishButtons');
+        const arabicInfo = document.getElementById('arabicInfo');
+        const englishInfo = document.getElementById('englishInfo');
+        
+        langToggle.addEventListener('click', () => {
+            isArabic = !isArabic;
+            
+            if (isArabic) {
+                // Switch to Arabic
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                langText.textContent = 'English';
+                
+                arabicContent.classList.remove('hidden');
+                englishContent.classList.add('hidden');
+                arabicButtons.classList.remove('hidden');
+                englishButtons.classList.add('hidden');
+                arabicInfo.classList.remove('hidden');
+                englishInfo.classList.add('hidden');
+            } else {
+                // Switch to English
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                langText.textContent = 'العربية';
+                
+                arabicContent.classList.add('hidden');
+                englishContent.classList.remove('hidden');
+                arabicButtons.classList.add('hidden');
+                englishButtons.classList.remove('hidden');
+                arabicInfo.classList.add('hidden');
+                englishInfo.classList.remove('hidden');
+            }
+        });
+        
+        // Update time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('currentTime').textContent = timeString;
+            document.getElementById('currentTimeEn').textContent = timeString;
+        }
+        
+        updateTime();
+        setInterval(updateTime, 1000);
+        
+        // Add some interactive effects
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            const errorNumber = document.querySelector('.error-number');
+            if (errorNumber) {
+                const translateX = (mouseX - 0.5) * 20;
+                const translateY = (mouseY - 0.5) * 20;
+                errorNumber.style.transform = `translate(${translateX}px, ${translateY}px)`;
+            }
+        });
+        
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                history.back();
+            } else if (e.key === 'Enter' || e.key === ' ') {
+                window.location.href = '/';
+            } else if (e.key === 'Tab') {
+                langToggle.click();
+                e.preventDefault();
+            }
+        });
+        
+        // Preload and error handling for fonts
+        document.fonts.ready.then(() => {
+            console.log('Fonts loaded successfully');
+        });
+    </script>
+</body>
+</html>
